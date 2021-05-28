@@ -4,22 +4,30 @@
 <link rel="stylesheet" href="./fontawesome-5.15.3/css/fontawesome.min.css">
 <link rel="stylesheet" href="./fontawesome-5.15.3/css/solid.min.css">
 <link rel="stylesheet" href="./fontawesome-5.15.3/css/brands.min.css">
+
+
 <style>
 
-html { margin: 0px; }
+html { margin: 0px; scroll-behavior: smooth; }
 html, body { margin: 0px; }
-
-body { background-color: #170b06; color: white; font-family: Arial; }
 
 @font-face { font-family: "Aurebesh"; src: url("AurebeshEnglishRegular-rjeO.ttf"); }
 
+body { background-color: #170b06; color: white; }
+
+
+/* banner */
+
 div.banner { position: relative; height: 340px; width: 100%; background-size: cover; background-position: center 0% ; background-image: url('dj-rex-ogas-cantina.jpg'); }
 div.header { position: absolute; bottom: 24px; right: 32px; }
-div.content { padding: 16px 32px; margin-left: auto; margin-right: auto; max-width: 880px; }
+
+/* content */
+
+div.content { padding: 16px 48px; margin-left: auto; margin-right: auto; max-width: 880px; font-family: Arial; }
 
 h1, h2, h3, h4 { font-family: "Aurebesh"; }
 
-h1, h2 { text-align: right; -webkit-text-stroke: .1px black; }
+h1, h2 { text-align: right; }
 
 h1, h2 { margin: 0px; }
 h3 { margin: 16px  0px 16px  0px; }
@@ -38,15 +46,57 @@ h3 { background-position: center; }
 
 p, li { font-size: 11pt; }
 
-a { color: #f18d02; transition: color .2s ease-in-out; }
-a:hover { color: #f8c681; }
+a { color: #f18d02; }
+a:hover { color: #f9d19a; }
 
 b { font-weight: 900; }
 
-hr.wide { color: #897670; height: 1px; width: 40%; margin: 36px auto; }
-hr { background-color: #897670; border: none; height: 8px; width: 8px; margin: 24px auto; }
+hr.wide { color: #897670; height: 6px; width: 30%; margin: 36px auto 0px auto; border-radius: 2px;  }
+hr { background-image: url('metal.jpg'); background-position: center; border: none; height: 6px; width: 6px; border-radius: 2px; margin: 24px auto; }
+
+table { background-color: #614940; min-width: 60%; padding: 3px; margin: 8px auto; border-radius: 2px; }
+td { font-family: Arial; font-size: 9pt; font-weight: 900; margin: 0px; padding: 2px 6px; }
 
 /*
+tr:nth-child(odd) { background-color: #897670; }
+*/
+
+/* sidebar */
+
+div.sidebar  { position: relative; background: radial-gradient(#023273 66%, #1367c0); }
+
+div.sidebar div, div.sidebar a { position: absolute; }
+
+div.sidebar1 { background-color: #81d9eb; }
+div.sidebar2 { background-color: #023273; }
+
+div.sidebar { clip-path: polygon(0% 12px, 12px 0%, calc(100% - 12px) 0%, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0% calc(100% - 12px)); }
+
+div.sidebar1, div.sidebar2 { clip-path: polygon(0% 8px, 8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px)); }
+
+
+div.sidebar a { display: block; width: 24px; height: 24px; background-color: #7fd5ef; color: #023273; padding: 4px; font-size: 7pt; font-family: monospace; text-decoration: none; text-align: center; }
+
+div.sidebar a:hover { color: #1367c0; }
+div.sidebar a i { font-size: 12pt; }
+
+/* fx */
+
+a { transition: color .15s ease-in-out; }
+
+
+/*
+
+blues
+
+#012960
+#013e86
+#023273
+#1367c0
+#4082e6
+#7fd5ef
+#81d9eb aqua
+
 brown
 
 3a1b10	34180e	2e160d	29130b	23100a	1d0e08	170b06	110805	0c0503	060302	000000
@@ -64,19 +114,46 @@ f18d02	f2981b	f4a435	f5af4e	f7bb67	f8c681	f9d19a	fbddb3	fce8cc	fef4e6	ffffff
 <body>
 
 <!--
-	art: https://www.slashfilm.com/ogas-cantina-review/
-	font: https://www.fontspace.com/aurebesh-english-font-f35314
-	texture: https://lostandtaken.com/downloads/scratched-scraped-metal-texture-7/
-	v1.0: https://reddit.com/r/GalaxysEdge/comments/ezkkam/behind_the_music_ogas_casino/
+art: https://www.slashfilm.com/ogas-cantina-review/
+font: https://www.fontspace.com/aurebesh-english-font-f35314
+texture: https://lostandtaken.com/downloads/scratched-scraped-metal-texture-7/
 -->
 
 
 <div class="banner">
 <div class="header">
-<h1>Oga&rsquo;s Cantina</h1>
+<h1>Oga's Cantina</h1>
 <h2>Behind The Music</h2>
 </div>
 </div>
+
+
+<!--
+<div class="sidebar" style="bottom: 20px; left: 20px; height: 184px; width: 68px;">
+<div class="sidebar1" style="top: 8px; left: 8px; height: 168px; width: 52px;">
+<div class="sidebar2" style="top: 2px; left: 2px; height: 164px; width: 48px;">
+
+<div style="top: 8px; left: 10px; height: 32px; width: 32px; background-color: #1367c0;"></div>
+<div style="top: 57px; left: 18px; height: 32px; width: 32px; background-color: #1367c0;"></div>
+<div style="top: 122px; left: 6px; height: 32px; width: 32px; background-color: #1367c0;"></div>
+
+<div style="top: 20px; left: 20px; height: 120px; width: 30px; border: 2px solid #81d9eb;"></div>
+<div style="top: 70px; left: -1px; height: 60px; width: 42px; border: 1px solid #81d9eb;"></div>
+<div style="top: 44px; left: 10px; height: 160px; width: 50px; border: 1px dashed #81d9eb;"></div>
+
+<div style="top: 42px; left: 0px; height: 10px; width: 15px; background-color: #81d9eb;"></div>
+<div style="top: 105px; left: 30px; height: 12px; width: 18px; background-color: #81d9eb;"></div>
+
+<a href="#songs"   style="top: 6px; left: 8px;"><i class="fas fa-music"></i><br/>sng</a>
+<a href="#artists" style="top: 55px; left: 16px;"><i class="fas fa-user-friends"></i><br/>ast</a>
+<a href="#lyrics"  style="top: 120px; left: 4px;"><i class="fas fa-paragraph"></i><br/>lyr</a>
+
+</div>
+</div>
+</div>
+-->
+
+
 
 
 
@@ -84,35 +161,57 @@ f18d02	f2981b	f4a435	f5af4e	f7bb67	f8c681	f9d19a	fbddb3	fce8cc	fef4e6	ffffff
 
 <h3>Introduction</h3>
 
-<p>If you're fascinated by who on Earth actually creates songs in the voices of jawas and droids, this is a compendium of information on the artists who created the music that plays in Oga's Cantina in Star Wars: Galaxy's Edge.
+<p>This is a compendium of information about the music in Oga&rsquo;s Cantina at Disney&rsquo;s Galaxy Edge.  It includes sections on where to find all the songs that are publicly available, the earthbound artists who created the music, and the alien lyrics of the songs.</p>
 
-<hr/>
 
-<p>Two of the producers of the music for Oga's Cantina were <a href="https://www.linkedin.com/in/matthew-walker-4743111ba/"><i class="fab fa-linkedin"></i></a> Matt Walker, the executive in charge of music at Walt Disney Imagineering, and 
-<a href="https://yaronspiwak.com/"><i class="fas fa-user"></i></a>
-<a href="https://www.linkedin.com/in/yaron-spiwak-72496939/"><i class="fab fa-linkedin"></i></a>
-Yaron Spiwak, a senior creative director at Walt Disney Imagineering.  The pair were interviewed by
-<a href="https://www.billboard.com/articles/news/8528161/disneys-star-wars-galaxys-edge-cantina-music-album-playlist-one">Billboard</a> about the general strategy for the project.</p>
+<div class="sidebar" style="margin: 24px 0px 48px 60%; height: 68px; width: 184px; */">
+<div class="sidebar1" style="top: 8px; left: 8px; height: 52px; width: 168px;">
+<div class="sidebar2" style="top: 2px; left: 2px; height: 48px; width: 164px;">
 
-<p>They credit LucasFilm employees 
-<a href="https://www.linkedin.com/in/matthewood/"><i class="fab fa-linkedin"></i></a>
-<a href="https://www.imdb.com/name/nm0003214/"><i class="fab fa-imdb"></i></a>
-<a href="https://en.wikipedia.org/wiki/Matthew_Wood_(sound_editor)">Matt Wood</a> from <a href="https://www.skysound.com/people/matthew-wood/">Skywalker Sound</a>
-and
-<a href="https://www.linkedin.com/in/david-w-collins-95121b2/"><i class="fab fa-linkedin"></i></a>
-<a href="https://www.imdb.com/name/nm1637637/"><i class="fab fa-imdb"></i></a>
-David Collins for writing the lyrics in the alien languages of Star Wars.  Wood is a 5-time Academy Award nominee for sound editing, and also the voice of General Grievous and a few other characters.  Collins is the lead sound designer / voice director with the video game division of LucasArts and has done some acting and voice acting for them as well.</p>
+<!--
+<div style="top: 8px; left: 10px; height: 32px; width: 32px; background-color: #1367c0;"></div>
+<div style="top: 57px; left: 18px; height: 32px; width: 32px; background-color: #1367c0;"></div>
+<div style="top: 122px; left: 6px; height: 32px; width: 32px; background-color: #1367c0;"></div>
+-->
 
-<p>Matt Walker also hosted an hour-long <a href="https://www.youtube.com/watch?v=pWWm8kUK-nc">panel discussion at D23 Expo 2019</a> about the music, featuring singer Judith Hill, Disney Group songwriter Jason Mater, Matt Wood, and composer / producer Adam Dorn.</p>
+<div style="top: -2px; left: 20px; height: 27px; width: 120px; border: 2px solid #81d9eb;"></div>
+<div style="top: 5px; left: 64px; height: 42px; width: 64px; border: 1px solid #81d9eb;"></div>
+<div style="top: -1px; left: 43px; height: 37px; width: 160px; border: 1px dashed #81d9eb;"></div>
+
+<div style="top: 34px; left: 42px; height: 9px; width: 9px; background-color: #81d9eb;"></div>
+<div style="top: 2px; left: 93px; height: 15px; width: 7px; background-color: #81d9eb;"></div>
+<div style="top: 2px; left: 104px; height: 15px; width: 4px; background-color: #81d9eb;"></div>
+
+<a href="#songs"   style="top: 8px; left: 6px;"><i class="fas fa-music"></i><br/>sng</a>
+<a href="#artists" style="top: 0px; left: 55px;"><i class="fas fa-user-friends"></i><br/>ats</a>
+<a href="#lyrics"  style="top: 12px; left: 120px;"><i class="fas fa-paragraph"></i><br/>lyr</a>
+
+</div>
+</div>
+</div>
 
 
 <hr class="wide"/>
 
+<a id="songs">&nbsp;</a>
+
 <h3>The Songs</h3>
 
-<p>6 tracks were released as a preview on August 23, 2019, the day before the D23 Expo, and then the full "R3X's Playlist #1" with 18 tracks was released as a digital download on September 6, 2019.  The playlist is available for <a href="https://music.apple.com/us/album/star-wars-galaxys-edge-ogas-cantina-r3xs-playlist-1/1478016479">purchase</a>, and is also available on <a href="https://www.youtube.com/watch?v=AydLFrcYNR8&list=PLiNVoBckLqLkZiHccDJk_lYiUrlESFO9z">YouTube</a> for the price of watching a few ads.</p>
+<p>According to this <a href="https://enewspaper.latimes.com/infinity/article_share.aspx?guid=9bd673e4-fd11-46e4-ae7c-bc9b87200d53">L.A. Times article</a>, the producers at Disney commissioned 29 songs for Oga&rsquo;s Cantina.  26 likely candidates are available online.</p>
 
-<p>"The Sims 4 Star Wars: Journey To Batuu" includes two radio stations, "DJ R-3X Stereo", and "Batuu Radio".  The former includes 2 songs, Blue Milk Surprise and Til The Spire, which are almost certainly used in Oga's Cantina.  The latter includes 6 songs, 3 of which are probably used in Oga's Cantina.  (The other 3 from "Batuu Radio" are not used in Oga's Cantina, and are covered later, in the section on ambient music.)</p>
+<hr/>
+
+<h4>Playlist</h4>
+
+<p>18 tracks were officially released as "R3X&rsquo;s Playlist #1" as a digital download on September 6, 2019.  (6 of those tracks got their first release as a preview a couple weeks prior, on August 23, 2019, the day before the D23 Expo.)</p>
+
+<p>The playlist is available for <a href="https://music.apple.com/us/album/star-wars-galaxys-edge-ogas-cantina-r3xs-playlist-1/1478016479">purchase</a>, and is also viewable on <a href="https://www.youtube.com/watch?v=AydLFrcYNR8&list=PLiNVoBckLqLkZiHccDJk_lYiUrlESFO9z">YouTube</a> for the price of watching a few ads.</p>
+
+<hr/>
+
+<h4>Extras</h4>
+
+<p>More songs were released in the video game expansion pack "The Sims 4 Star Wars: Journey To Batuu", which includes two new sims radio stations.  <a href="https://sims.fandom.com/wiki/The_Sims_4:_Journey_to_Batuu#DJ_R-3X_Stereo">"DJ R-3X Stereo"</a> includes 4 known Oga&rsquo;s Cantina songs plus "Blue Milk Surprise" and "Til The Spire", so those 2 are almost certainly for Oga&rsquo;s Cantina.  <a href="https://sims.fandom.com/wiki/The_Sims_4:_Journey_to_Batuu#Batuu_Radio">"Batuu Radio"</a> includes 6 rearrangements of John Williams&rsquo; score, 3 ambient tracks (covered later), and 3 songs that may be for Oga&rsquo;s Cantina.</p>
 
 <ol type="A">
 <li><a href="https://www.youtube.com/watch?v=En7wVwUsSFU">Blue Milk Surprise</a> by Adam Gubman and Matthew Wood</li>
@@ -122,14 +221,76 @@ David Collins for writing the lyrics in the alien languages of Star Wars.  Wood 
 <li><a href="https://www.youtube.com/watch?v=zb3Wz6zXrss">Ti Lo Laka</a> by Beckerman Green & Douek</li>
 </ol>
 
-<p>In addition, 3 more unreleased tracks, "R3X Opening Track", "Doolstan", and "Gaya" are available on the <a href="https://www.brewhousemusic.com/disneystarwarsdjr3xinogascan">Brewhouse Music site</a>.</p>
+<p>3 unreleased tracks are available on the <a href="https://www.brewhousemusic.com/disneystarwarsdjr3xinogascan">Brewhouse Music site</a>:</p>
+
+<ol type="A" start="6">
+<li><a href="https://music.wixstatic.com/mp3/cb54f1_f359a04f92ec4aa0b3a774d29f236a8d.mp3">R3X Opening Track</a></li>
+<li><a href="https://music.wixstatic.com/mp3/cb54f1_5df843d3e06546619ccaea40b77e27ba.mp3">Doolstan</a></li>
+<li><a href="https://music.wixstatic.com/mp3/cb54f1_54c9f1b42da04908b4d71e59f0516345.mp3">Gaya</a></li>
+</ol>
+
+
+
+<hr/>
+
+<h4>Ambient</h4>
+
+<p>Oga&rsquo;s Cantina is not the only music in Galaxy&rsquo;s Edge.  In addition to the John Williams themes for Savi&rsquo;s Workshop, Rise Of The Resistance, and Smuggler&rsquo;s Run, there is also ambient music out in the streets.  Three of the tracks from "Batuu Radio" are ambient music; the first two play in the marketplace, the third plays in the courtyard outside Docking Bay 7:</p>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=JK6QAowNn_g">Marketplace</a> by Harlan Hodges</li>
+<li><a href="https://www.youtube.com/watch?v=1TJA6pFvkao">Marketplace Hora</a> by Randy Kerber</li>
+<li><a href="https://www.youtube.com/watch?v=D7j6POdvFUM">Mischievous</a> by Randy Kerber</li>
+</ul>
+
+<p>
+<a href="http://randykerbermusic.com"><i class="fas fa-user"></i></a>
+<a href="https://www.linkedin.com/in/randy-kerber-752b945/"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.imdb.com/name/nm0449205/"><i class="fab fa-imdb"></i></a>
+<a href="https://en.wikipedia.org/wiki/Randy_Kerber">Randy Kerber</a> and
+
+<a href="https://www.harlanhodges.com"><i class="fas fa-user"></i></a>
+<a href="https://www.linkedin.com/in/harlan-hodges-94593061/"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.facebook.com/harlan.hodges/"><i class="fab fa-facebook-square"></i></a>
+<a href="https://www.imdb.com/name/nm7649784/"><i class="fab fa-imdb"></i></a>
+Harlan Hodges are 2 of the 3 people who comprise <a href="https://aporiaentertainment.com/harlan-hodges">Aporia Entertainment</a>.</p>
+
+<p>Short excerpts of Marketplace and 6 other ambient pieces are available on <a href="https://www.harlanhodges.com/news/the-music-of-star-wars-galaxys-edge-harlan-hodges-and-randy-kerber">Harlan Hodges&rsquo; site</a>.</p>
+
+<hr/>
+
+
+<h4>Diagetic</h4>
+
+<p>R3X&rsquo;s Playlist includes a remix of "Cantina Band", the most recognizable piece of <a href="https://en.wikipedia.org/wiki/Music_of_Star_Wars#Diegetic_music">diagetic music</a> from the movies, but there many more that would fit in Oga&rsquo;s Cantina.</p>
+
+<p>There are 4 by <a href="https://en.wikipedia.org/wiki/John_Williams">John Williams</a>:</p>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=9FVADOLRf54">Cantina Band #2</a> by Figrin D&rsquo;an (background music during Han&rsquo;s negotiation with Luke and Obi Wan in Star Wars)</li>
+<li><a href="https://www.youtube.com/watch?v=8ebjptd6Kgo">Lapti Nek</a> by Sy Snootles and The Max Rebo Band (in Jabba&rsquo;s throne room in Return Of The Jedi)</li>
+<li><a href="https://www.youtube.com/watch?v=VacG9L2Zkq8">Galactic Dance Blast</a> by the Max Rebo Band (background music on the sail barge in Return Of The Jedi; never released on any soundtrack album)</li>
+<li><a href="https://www.youtube.com/watch?v=N8ue_5T4fMk">Canto Bight</a> (in the casino in The Last Jedi)</li>
+</ul>
+
+<p>Lapti Nek was replaced in the 1997 Special Edition release of Return Of The Jedi by <a href="https://www.youtube.com/watch?v=2gnHu1M7jxs">Jedi Rocks</a>, written by <a href="https://en.wikipedia.org/wiki/Jerry_Hey">Jerry Hey</a>.</p>
 
 <!--
-Gaya remixes Tuba Doo by Lego Mix: https://www.youtube.com/watch?v=ngVXcI_GEWM
-Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/watch?v=Tv5VJkPIa-I
+https://genius.com/The-max-rebo-band-lapti-nek-lyrics
+https://starwars.fandom.com/wiki/Lapti_Nek/Legends
+https://starwars.fandom.com/wiki/Lapti_Nek
+
+says “work it out” while Wermo’s guide has it “fancy man"
 -->
 
-<p>According to an <a href="https://enewspaper.latimes.com/infinity/article_share.aspx?guid=9bd673e4-fd11-46e4-ae7c-bc9b87200d53">L.A. Times article</a>, 29 songs were commissioned.  The 18 songs from the playlist, the 5 songs from The Sims, and the 3 songs from Brewhouse Music make 26, so there are likely a handful of Oga's Cantina songs still unreleased.</p>
+<p>For the sequel trilogy, <a href="https://en.wikipedia.org/wiki/Lin-Manuel_Miranda">Lin-Manuel Miranda</a> was <a href="https://starwars.fandom.com/wiki/Jabba_Flow#Behind_the_scenes">asked by J.J. Abrams</a> to produce several pieces of music:</p>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=-eVfuzJcf8c">Jabba Flow</a> by Shag Kava (as Han Solo, Finn, Rey, and BB-8 enter Maz Kanata&rsquo;s castle in The Force Awakens; Lin-Manuel Miranda has also done the song as a <a href="https://www.youtube.com/watch?v=7Sagk5uKEtQ">street performance</a>!)</li>
+<li><a href="https://www.youtube.com/watch?v=UdAD9VZta3o">Dobra Doompa</a> by Shag Kava (later in Maz Kanata&rsquo;s castle in The Force Awakens; never released on any soundtrack album)</li>
+<li><a href="https://www.youtube.com/watch?v=Ca2SlCjDxUA">Lido Hey</a> by Shag Kava (at the festival of the ancestors in The Rise Of Skywalker; never released on any soundtrack album, and there&rsquo;s no clean clip of it available)</li>
+</ul>
+
 
 
 
@@ -140,11 +301,25 @@ Hailed as “equal parts Philip Glass and Don Draper” by Details Magazine, JOE
 
 <hr class="wide"/>
 
+<a name="artists">&nbsp;</a>
+
 <h3>The Artists</h3>
 
-<p>
-A track by track look at the people who created the music...
-</p>
+<p>If you&rsquo;re fascinated by who on Earth actually creates songs in the voices of jawas and droids, this section covers the artists who created the music for Oga&rsquo;s Cantina.</p>
+
+<hr/>
+
+<h4>Overview</h4>
+
+<p>The producers of the music for Oga&rsquo;s Cantina were <a href="https://www.linkedin.com/in/matthew-walker-4743111ba/"><i class="fab fa-linkedin"></i></a> Matt Walker, the executive in charge of music at Walt Disney Imagineering, and 
+<a href="https://yaronspiwak.com/"><i class="fas fa-user"></i></a>
+<a href="https://www.linkedin.com/in/yaron-spiwak-72496939/"><i class="fab fa-linkedin"></i></a>
+Yaron Spiwak, a senior creative director at Walt Disney Imagineering.  The pair were interviewed by
+<a href="https://www.billboard.com/articles/news/8528161/disneys-star-wars-galaxys-edge-cantina-music-album-playlist-one">Billboard</a> about the general strategy for the project.</p>
+
+<p>Matt Walker also hosted an hour-long <a href="https://www.youtube.com/watch?v=pWWm8kUK-nc">panel discussion at D23 Expo 2019</a> about the music, featuring singer Judith Hill, Disney Group songwriter Jason Mater, Matt Wood from LucasFilm, and composer / producer Adam Dorn.</p>
+
+
 
 <hr/>
 
@@ -153,7 +328,7 @@ A track by track look at the people who created the music...
 
 <p>This is a dance remix of the iconic 1977 <a href="https://en.wikipedia.org/wiki/John_Williams">John Williams</a> song, known simply as "Cantina Band" on the original <a href="https://en.wikipedia.org/wiki/Star_Wars_(soundtrack)">Star Wars soundtrack</a>.  It later became known as "Mad About Me" by Figrin D&rsquo;an and the Modal Nodes.</p>
 
-<p>The purported remixer is R3X, the robot DJ, formerly (originally RX-24 aka "REX") who piloted the Star Tours ride.  He is <a href="https://peewee.com/2019/04/16/star-wars-fans-paul-reubens-voiced-dj-r3x-in-disneys-galaxys-edge/">voiced</a> by <a href="https://en.wikipedia.org/wiki/Paul_Reubens">Paul Reubens</a>, better known by his stage name <a href="https://en.wikipedia.org/wiki/Pee-wee_Herman">Pee Wee Herman</a>.  The track info does not credit the actual human who did the remix, but <a href="https://www.starwars.com/news/d23-expo-2019-music-and-sounds-of-star-wars-galaxys-edge-panel">this article</a> credits producer Adam Dorn.</p>
+<p>The purported remixer is R3X, the robot DJ (originally RX-24 aka "REX") who formerly piloted the Star Tours ride.  He is <a href="https://peewee.com/2019/04/16/star-wars-fans-paul-reubens-voiced-dj-r3x-in-disneys-galaxys-edge/">voiced</a> by <a href="https://en.wikipedia.org/wiki/Paul_Reubens">Paul Reubens</a>, better known by his stage name <a href="https://en.wikipedia.org/wiki/Pee-wee_Herman">Pee Wee Herman</a>.  The track info does not credit the actual human who did the remix, but <a href="https://www.starwars.com/news/d23-expo-2019-music-and-sounds-of-star-wars-galaxys-edge-panel">this article</a> credits producer Adam Dorn.</p>
 
 <hr/>
 
@@ -175,8 +350,7 @@ and saxophonist
 <a href="https://en.wikipedia.org/wiki/Ori_Kaplan">Ori Kaplan</a>.
 Both grew up in Israel and now work in Brooklyn.  The duo founded 
 <a href="http://www.balkanbeatbox.com"><i class="fas fa-user"></i></a>
-<a href="https://en.wikipedia.org/wiki/Balkan_Beat_Box">Balkan Beat Box</a>, a world music fusion band with heavy klezmer and punk influences.  What they do doesn&rsquo;t take much alteration to fit in Batuu.  If you want more music like that in Oga&rsquo;s Cantina, definitely check out Balkan Beat Box.
-</p>
+<a href="https://en.wikipedia.org/wiki/Balkan_Beat_Box">Balkan Beat Box</a>, a world music fusion band with heavy klezmer and punk influences.</p>
 
 <p>There is a fourth Mus Kat and Nalpak song, <a href="https://www.youtube.com/watch?v=i4XckakuxnM">Til The Spire</a>, in "The Sims 4 Star Wars: Journey To Batuu".</p>
 
@@ -190,7 +364,7 @@ Here is an
 with the duo, with samples of their music.</p>
 -->
 
-<p><b>For More:</b> Balkan Beat Box has a <a href="https://www.youtube.com/user/BalkanBeatBoxChannel">YouTube channel</a> with many of their songs; a good place to start is <a href="https://www.youtube.com/watch?v=RT7p9JCoVmI">Kum Kum</a>.</p>
+<p><b>For More:</b> What they do doesn&rsquo;t take much alteration to fit in Batuu.  If you want more music like that in Oga&rsquo;s Cantina, definitely check out Balkan Beat Box.  They have a <a href="https://www.youtube.com/user/BalkanBeatBoxChannel">YouTube channel</a> with many of their songs; a good place to start is <a href="https://www.youtube.com/watch?v=RT7p9JCoVmI">Kum Kum</a>.</p>
 
 <hr/>
 
@@ -204,7 +378,7 @@ with the duo, with samples of their music.</p>
 
 <hr/>
 
-<h4>5. Oola Shuka</h4>
+<h4>5) Oola Shuka</h4>
 <h5>Gaya</h5>
 
 <p>
@@ -243,12 +417,12 @@ The band name is a play on the names of the composers,
 Ryan O&rsquo;Connell.
 </p>
 
-<p>Vigoda is a singer, electric violin player, and composer.  She is a founding member of the musical group
+<p>Vigoda is a singer, electric violin player, and composer.  She linked the song on her <a href="https://www.facebook.com/permalink.php?story_fbid=2820573711309689&id=282482381785514">Facebook page</a>.  She is a founding member of the musical group
 <a href="http://www.groovelily.com"><i class="fas fa-user"></i></a>
 <a href="https://en.wikipedia.org/wiki/GrooveLily">GrooveLily</a>,
 and has toured with Cyndy Lauper and Joe Jackson.  She has written a number of musicals with usual collaborator and now husband Brendan Milburn.</p>
 
-<p><b>For More:</b> The two collaborated on <a href="https://www.imdb.com/title/tt6960770/">Ernest Shackleton Loves Me</a>, a stage play that was turned into a movie, where Vigoda starred, and O&rsquo;Connell was music director.  A few songs from that, plus a lot of other material by Vigoda, are on her <a href="https://www.youtube.com/user/ValerieVigoda">YouTube channel</a>.  
+<p><b>For More:</b> O&rsquo;Connell&rsquo;s site lists the other <a href="https://www.ryanomusic.com/media">collaborations</a> between the two.  One is <a href="https://www.imdb.com/title/tt6960770/">Ernest Shackleton Loves Me</a>, a stage play that was turned into a movie, where Vigoda starred, and O&rsquo;Connell was music director.  A few songs from that, plus a lot of other material by Vigoda, are on her <a href="https://www.youtube.com/user/ValerieVigoda">YouTube channel</a>.  
 </p>
 
 <hr/>
@@ -267,7 +441,7 @@ Gubz is <a href="https://adamgubman.com"><i class="fas fa-user"></i></a>
 <a href="https://www.moonwalkaudio.com/">Moonwalk Audio</a>.
 </p>
 
-<p>Gubman and Skywalker Sound voice actor Matthew Wood are behind the track <a href="https://www.youtube.com/watch?v=En7wVwUsSFU">Blue Milk Surprise</a> in "The Sims 4: Journey To Batuu".</p>
+<p>Gubman and Matthew Wood from Skywalker Sound are behind the track <a href="https://www.youtube.com/watch?v=En7wVwUsSFU">Blue Milk Surprise</a> in "The Sims 4: Journey To Batuu".</p>
 
 <p><b>For More:</b> Gubman also produced the Grammy winning and Oscar nominated song <a href="https://www.youtube.com/watch?v=CjxugyZCfuw">This Is Me</a>, from The Greatest Showman.  More recently he created <a href="https://vimeo.com/367337814">Seeds</a>, an animated musical.  His music for <a href="https://www.youtube.com/watch?v=_3XQHlTY3lY">Arknights</a> is excellent.</p>
 
@@ -296,7 +470,7 @@ Both songs are by
 with him, about his background, his inspirations, and his process.
 </p>
 
-<p><b>For More:</b> Kramer's <a href="https://www.youtube.com/channel/UCi-19Evt3grcnzE_K_uBddA">YouTube channel</a> mostly contains samples from his soundtrack to the Lego TV series Ninjago.</p>
+<p><b>For More:</b> Kramer&rsquo;s <a href="https://www.youtube.com/channel/UCi-19Evt3grcnzE_K_uBddA">YouTube channel</a> mostly contains samples from his soundtrack to the Lego TV series Ninjago.</p>
 
 <hr/>
 
@@ -315,11 +489,15 @@ Zain Effendi and Tyler Martens, the second is Zain Effendi and Dylan Lane.
 Effendi worked on the team that did the music for Pirates Of The Caribbean 3 and a number of other high-profile movies, then went solo.  He is represented by <a href="https://www.air-edel.co.uk/representation/zain-effendi/">Air Edel</a>.
 </p>
 
-<p><b>For More:</b> Check out Effendi's song <a href="https://soundcloud.com/zaineffendimusic/dark-mission">Dark Mission</a>.</p>
+<p><b>For More:</b> Check out Effendi&rsquo;s song <a href="https://soundcloud.com/zaineffendimusic/dark-mission">Dark Mission</a>.</p>
 <hr/>
 
 <h4>13. Utinni</h4>
 <h5>The Dusty Jawas</h5>
+
+<h4>F. R3X Opening Track<br/>
+G. Doolstan<br/>
+H. Gaya</h4>
 
 <p>
 <a href="https://www.facebook.com/yossijoseph"><i class="fab fa-facebook-square"></i></a> Yossi Cohen and
@@ -330,7 +508,13 @@ are two of the composers at
 &ldquo;<a href="https://www.youtube.com/watch?v=dfYa54Y6KAM">Movement is Happiness (Find Your Thing)</a>&rdquo;
 for Just Dance 2015.  A bio of Goren is available on <a href="http://syncsummit.com/goren/">Sync Summit</a>.</p>
 
-<p><b>For More:</b> The Brewhouse Music site includes a portfolio, which has <a href="https://www.brewhousemusic.com/disneystarwarsdjr3xinogascan">3 unreleased Oga's Cantina tracks</a>.</p>
+<p><b>For More:</b> The Brewhouse Music site includes a portfolio, which has <a href="https://www.brewhousemusic.com/disneystarwarsdjr3xinogascan">3 unreleased Oga&rsquo;s Cantina tracks</a>.</p>
+
+
+<!--
+Gaya remixes Tuba Doo by Lego Mix: https://www.youtube.com/watch?v=ngVXcI_GEWM
+-->
+
 
 <p>(There are two musicians out there named Yossi Cohen; previous versions of this pointed to the wrong <a href="https://www.facebook.com/pages/category/Artist/Yossi-Cohen-243905226314314/"><i class="fab fa-facebook-square"></i></a> Yossi Cohen, the Brooklyn-based Lubavitcher keyboardist and singer.  Who is also <a href="https://www.youtube.com/watch?v=g8qXRWVDeDA">fantastic</a>.)</p>
 
@@ -341,8 +525,8 @@ for Just Dance 2015.  A bio of Goren is available on <a href="http://syncsummit.
 
 <p>
 <a href="https://twitter.com/jasonmater?lang=en"><i class="fab fa-twitter-square"></i></a>
-<a href="https://www.linkedin.com/in/jason-mater-56737530/"><i class="fab fa-facebook-square"></i></a> Jason Mater
-is another Disney regular.  He is a producer and songwriter.  The band name is his name spliced into the sounds in the song.  He was listed on the <a href="http://disneymusicpublishing.com/">Disney Music Publishing</a> site previously, but is not currently.</p>
+<a href="https://www.linkedin.com/in/jason-mater-56737530/"><i class="fab fa-linkedin"></i></a> Jason Mater
+is a producer and songwriter with Disney Music Group.  The band name is his name spliced into the sounds in the song.</p>
 
 <p><b>For More:</b> Mater recently cowrote a country hit with Sam Grow called 
 <a href="https://www.youtube.com/watch?v=dtsGpS0xOJg">Nobody&rsquo;s You</a>.  He has a long list of credits on <a href="https://www.allmusic.com/artist/jason-mater-mn0002680214">AllMusic</a>.</p>
@@ -358,6 +542,8 @@ is another Disney regular.  He is a producer and songwriter.  The band name is h
 <h4>18. Yocola Ateema</h4>
 <h5>Fytee &amp; The Sleemos</h5>
 
+
+
 <p>
 These three are all by
 <a href="https://www.facebook.com/dan.fontana2"><i class="fab fa-facebook-square"></i></a>
@@ -366,7 +552,7 @@ Dan Fontana and
 <a href="https://www.linkedin.com/in/roger-butterley/"><i class="fab fa-linkedin"></i></a>
 Roger Butterley.  Fontana is the founder of 
 <a href="https://www.facebook.com/TyFystudios/"><i class="fab fa-facebook-square"></i></a> <a href="https://tyfystudios.com/">Ty Fy Studios</a>, an industrial music shop in Orlando, which has done a lot of work for Disney.  
- Butterley is a Senior Music Producer at Disney.  Here is a genuinely heartwarming <a href="https://www.facebook.com/photo?fbid=10157536999370882">picture of the duo</a> at Oga's.</p>
+ Butterley is a Senior Music Producer at Disney.  Here is a genuinely heartwarming <a href="https://www.facebook.com/photo?fbid=10157536999370882">picture of the duo</a> at Oga&rsquo;s.</p>
 
 <p><b>For More:</b> Ty Fy Studios has a ton of samples on their <a href="https://tyfystudios.com/music/">music portfolio page</a>.</p>
 
@@ -380,15 +566,19 @@ Roger Butterley.  Fontana is the founder of
 <a href="https://www.facebook.com/guymazig"><i class="fab fa-facebook-square"></i></a>
 Guy Mayzig, an Israeli musician from Lod.</p>
 
-<p><b>For More:</b> Check out Mayzig's <a href="https://www.youtube.com/channel/UCgsOfMGnBB4exGwu2QEuPvQ">YouTube channel</a>.</p>
+<p><b>For More:</b> Check out Mayzig&rsquo;s <a href="https://www.youtube.com/channel/UCgsOfMGnBB4exGwu2QEuPvQ">YouTube channel</a>.</p>
 
 <hr/>
 
 
 <h4>D. Victory on Ryloth</h4>
 
-<p>The track in "The Sims 4 Star Wars: Journey To Batuu" called <a href="https://www.youtube.com/watch?v=E2fugqq5cXk">Victory on Ryloth</a> is very likely mislabeled.  There is a track by that name on the Clone Wars soundtrack, written by Kevin Kiner, during the scene where they are fighting on Ryloth, which is a completely different track.  We probably don't actually know the correct name or composer of this song.</p>
+<p>The track in "The Sims 4 Star Wars: Journey To Batuu" called <a href="https://www.youtube.com/watch?v=E2fugqq5cXk">Victory on Ryloth</a> is very likely mislabeled.  There is a <a href="https://www.youtube.com/watch?v=HdN7vDPY2j4">track by that name</a> on the Clone Wars soundtrack, written by Kevin Kiner, during the scene where they are fighting on Ryloth, which is a completely different track.  We probably don&rsquo;t know the actual name or composer of this song.</p>
 
+
+<!--
+Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/watch?v=Tv5VJkPIa-I
+-->
 
 <hr/>
 
@@ -401,72 +591,212 @@ Guy Mayzig, an Israeli musician from Lod.</p>
 
 <hr class="wide"/>
 
-<h3>Ambient</h3>
+<a name="lyrics">&nbsp</a>
 
-<p>Three of the tracks in "The Sims 4 Star Wars: Journey To Batuu" are ambient music, which plays in the streets of Galaxy's Edge, not in Oga's Cantina.  The first two play in the marketplace, the third plays in the docking bay.</p>
+<h3>The Lyrics</h3>
 
-<p>The tracks are credited to 
-<a href="http://randykerbermusic.com"><i class="fas fa-user"></i></a>
-<a href="https://www.linkedin.com/in/randy-kerber-752b945/"><i class="fab fa-linkedin"></i></a>
-<a href="https://www.imdb.com/name/nm0449205/"><i class="fab fa-imdb"></i></a>
-<a href="https://en.wikipedia.org/wiki/Randy_Kerber">Randy Kerber</a> and
+<p>Some of the songs are very likely nonsense, but there are a number which were clearly written using the languages created for the films.</p>
 
-<a href="https://www.harlanhodges.com"><i class="fas fa-user"></i></a>
-<a href="https://www.linkedin.com/in/harlan-hodges-94593061/"><i class="fab fa-linkedin"></i></a>
-<a href="https://www.facebook.com/harlan.hodges/"><i class="fab fa-facebook-square"></i></a>
-<a href="https://www.imdb.com/name/nm7649784/"><i class="fab fa-imdb"></i></a>
-Harlan Hodges.  Kerber and Hodges are 2 of the 3 people who comprise <a href="https://aporiaentertainment.com/harlan-hodges">Aporia Entertainment</a>.</p>
+<p>In the interview in <a href="https://www.billboard.com/articles/news/8528161/disneys-star-wars-galaxys-edge-cantina-music-album-playlist-one">Billboard</a>, Yaron Spiwak credits LucasFilm employees 
+<a href="https://www.linkedin.com/in/matthewood/"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.imdb.com/name/nm0003214/"><i class="fab fa-imdb"></i></a>
+<a href="https://en.wikipedia.org/wiki/Matthew_Wood_(sound_editor)">Matt Wood</a> from <a href="https://www.skysound.com/people/matthew-wood/">Skywalker Sound</a>
+and
+<a href="https://www.linkedin.com/in/david-w-collins-95121b2/"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.imdb.com/name/nm1637637/"><i class="fab fa-imdb"></i></a>
+David Collins for writing the lyrics in the alien languages of Star Wars.  Wood is a 5-time Academy Award nominee for sound editing, and also the voice of General Grievous and a few other characters.  Collins is the lead sound designer / voice director with the video game division of LucasArts and has done some acting and voice acting for them as well.</p>
 
-<ul>
-<li><a href="https://www.youtube.com/watch?v=JK6QAowNn_g">Marketplace</a> by Harlan Hodges</li>
-<li><a href="https://www.youtube.com/watch?v=1TJA6pFvkao">Marketplace Hora</a> by Randy Kerber</li>
-<li><a href="https://www.youtube.com/watch?v=D7j6POdvFUM">Mischievous</a> by Randy Kerber</li>
-</ul>
+<p>Goola Bukee, Moulee-Rah, Huttuk Cheeka, and Yocola Ateema are Huttese.  Utinni is Jawa.  Una Duey Day is Gungan.  Batuu Boogie is possibly Ithorian.</p>
 
-<p>In addition, short (under 1 minute) excerpts of Marketplace and 6 other ambient pieces are available on <a href="https://www.harlanhodges.com/news/the-music-of-star-wars-galaxys-edge-harlan-hodges-and-randy-kerber">Harlan Hodges' site</a>.</p>
+<p>Sources of vocabulary for the translations are Ben Burtt's Galactic Phrase Book & Travel Guide and <a href="http://www.completewermosguide.com">Complete Wermo&rsquo;s Guide</a>.</p>
 
+<hr/>
 
+<h4>18. Yocola Ateema</h4>
 
-<hr class="wide"/>
+<p>A Huttese song about chugging your drink.</p>
 
-<h3>Diagetic</h3>
+<table>
+<tr><td width="50%"><i>verse</i></td><td width="50%"></td></tr>
+<tr><td>yocola ateema</td><td>drink now</td></tr>
+<tr><td>yocola ateema</td><td>drink now</td></tr>
+<tr><td>chowbaso mikiyuna</td><td>welcome everybody</td></tr>
+<tr><td>ateema yocola</td><td>now drink</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat verse</i></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>chowbaso ateema</td><td>welcome now</td></tr>
+<tr><td>yocola yocola</td><td>drink drink</td></tr>
+<tr><td>ateema ateema ateema ateema</td><td>now now now now</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>chowbaso mikiyuna</td><td>welcome everybody</td></tr>
+<tr><td>yocola ateema</td><td>drink now</td></tr>
+<tr><td>yocola yocola yocola yocola</td><td>drink drink drink drink</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat verse</i></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat verse</i></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>yocola</td><td>drink</td></tr>
+</table>
 
-<p>R3X's Playlist includes a remix of Cantina Band, the most recognizable of John Williams&rsquo; compositions for the Star Wars movies.  But that is just one of the many pieces of <a href="https://en.wikipedia.org/wiki/Music_of_Star_Wars#Diegetic_music">diagetic music</a> in the movies.  There is plenty more where that came from.  There are 4 other pieces by John Williams:</p>
+<p>(Major credit to Anthony for tackling the first one, getting it perfect, and figuring out that translation was even a possibility.  The rest are mostly collaborations.)</p>
 
-<ul>
-<li><a href="https://www.youtube.com/watch?v=9FVADOLRf54">Cantina Band #2</a> by Figrin D'an, from Star Wars, which plays in the background during Han's negotiation with Luke and Obi Wan</li>
-<li><a href="https://www.youtube.com/watch?v=8ebjptd6Kgo">Lapti Nek</a> by Sy Snootles and The Max Rebo Band, from Return Of The Jedi, plays in Jabba's throne room</li>
-<li><a href="https://www.youtube.com/watch?v=VacG9L2Zkq8">Galactic Dance Blast</a>, never released on any soundtrack album, which the Max Rebo Band plays as background music on the sail barge</li>
-<li><a href="https://www.youtube.com/watch?v=N8ue_5T4fMk">Canto Bight</a> from the casino in The Last Jedi</li>
-</ul>
+<hr/>
 
-<p>(Lapti Nek was replaced in the 1997 Special Edition release of Return Of The Jedi by <a href="https://www.youtube.com/watch?v=2gnHu1M7jxs">Jedi Rocks</a>, written by <a href="https://en.wikipedia.org/wiki/Jerry_Hey">Jerry Hey</a>.)</p>
+<h4>17. Huttuk Cheeka</h4>
+
+<p>Another Huttese song, about a "Hutt-Sized Woman".</p>
+
+<table>
+<tr><td width="50%"><i>chorus</i></td><td width="50%"></td></tr>
+<tr><td>huttuk cheeka</td><td>hutt-sized woman</td></tr>
+<tr><td>huttuk cheeka</td><td>hutt-sized woman</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>dobra chik youngee<td>I am dancing girl</td></tr>
+<tr><td>uba naga, uba sleemo poy<td>you want, you drool</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>yuna puna whirlee<td>first class dancers</td></tr>
+<tr><td>jeeska kapa ovv<td>keep hands off</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat chorus</i></td><td></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat chorus</i></td><td></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat chorus</i></td><td></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>dobra chik youngee<td>I am dancing girl</td></tr>
+<tr><td>jeeska kapa ovv<td>keep hands off</td></tr>
+</table>
+
+<p>(The second "dobra" sounds more like "lopra", but this is very close, if not perfect.)</p>
+
+<hr/>
+
+<h4>15. Moulee-Rah</h4>
+
+<p>"Moulee-Rah" means "Money" in Huttese.  Unknown words are in [brackets].</p>
+
+<table>
+<tr><td width="50%"><i>verse (0:07)</i></td><td width="50%"></td></tr>
+<tr><td>[gorah] moulee-rah nek</td><td>[?] money man</td></tr>
+<tr><td>jee wamma uba</td><td>I pay you</td></tr>
+<tr><td>smeeleeya che je</td><td>smile for me</td></tr>
+<tr><td>jee wamma uba</td><td>I pay you</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>chorus (0:16)</i></td><td></td></tr>
+<tr><td>an ta moulee-rah</td><td>and the money</td></tr>
+<tr><td>kava kava kava kava</td><td>how much, how much...</td></tr>
+<tr><td>an ta moulee-rah</td><td>and the money</td></tr>
+<tr><td>tagwa tagwa tagwa tagwa</td><td>yes yes yes yes</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat verse (0:38)</i></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat chorus (0:47)</i></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat chorus (1:18)</i></td></tr>
+</table>
+
+<p>(Nothing matches "gorah"; want it to be "lorda" (boss) but it's just not.  The way "an ta" is sung, it could be almost anything, so that is an educated guess.)</p>
 
 <!--
-https://genius.com/The-max-rebo-band-lapti-nek-lyrics
-https://starwars.fandom.com/wiki/Lapti_Nek/Legends
-https://starwars.fandom.com/wiki/Lapti_Nek
-
-says “work it out” while Wermo’s guide has it “fancy man"
+[da = that]
+[choba = offer, hagwa = don't, kagwa = newest, panwa = enjoy, bata = back, haba = maybe, vopa = would like]
 -->
 
-<p>For the sequel trilogy, <a href="https://en.wikipedia.org/wiki/Lin-Manuel_Miranda">Lin-Manuel Miranda</a> was <a href="https://starwars.fandom.com/wiki/Jabba_Flow#Behind_the_scenes">asked by J.J. Abrams</a> to produce several pieces of music.  The performer for all 3 of them is listed as Shag Kava.</p>
+<hr/>
 
-<ul>
-<li><a href="https://www.youtube.com/watch?v=-eVfuzJcf8c">Jabba Flow</a> plays in The Force Awakens, as Han Solo, Finn, Rey, and BB-8 enter Maz Kanata's castle (Lin-Manuel Miranda has also done the song as a <a href="https://www.youtube.com/watch?v=7Sagk5uKEtQ">street performance</a>!)</li>
-<li><a href="https://www.youtube.com/watch?v=UdAD9VZta3o">Dobra Doompa</a> is also from The Force Awakens, but is not on the soundtrack; it plays later in Maz Kanata's castle</li>
-<li><a href="https://www.youtube.com/watch?v=Ca2SlCjDxUA">Lido Hey</a> is the song The Rise Of Skywalker during the festival of the ancestors; there's no clean recording of it available</li>
-</ul>
+<h4>11. Goola Bukee</h4>
+
+<p>The title means "Bad Boy" in Huttese.  Unknown words are in [brackets].</p>
+
+<table cellspacing="2">
+<tr><td width="50%"><i>verse (0:40)</i></td><td width="50%"></td></tr>
+<tr><td>jee bolla [buku] jee no [bee] nobata konchee</td><td rowspan="4">[lots of pieces, but they don't add up:<br/>
+jee = I, je = me, jee-jee = we,<br/>
+bolla = go, bu = the, coo = who,<br/>
+no = no, nobata = no, bata = back, konchee = where]</td></tr>
+<tr><td>jee [kwanla] [buku] jee no [bee] nobata konchee</td></tr>
+<tr><td>jee-jee no [buku] jee no [bee] nobata konchee</td></tr>
+<tr><td>jee [kwanla] [buku] jee no [bee] nobata konchee</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>chorus (0:58)</i></td><td></td></tr>
+<tr><td>mikiyuna chess ko, yuna, uba goola, uba goola</td><td>everybody be careful, body, you bad, you bad</td></tr>
+<tr><td>mikiyuna chess ko, yuna, uba goola, uba goola</td><td>everybody be careful, body, you bad, you bad</td></tr>
+<tr><td>wamma jee</td><td>pay me</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat verse (1:40)</i></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat chorus (1:50)</i></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>bridge (2:05)</i></td><td></td></tr>
+<tr><td>hotsa yuna, hotsa yuna</td><td>hot body, hot body</td></tr>
+<tr><td>whirlee jee uba</td><td>dance me you</td></tr>
+<tr><td>mee sa gusha, mee sa flootah</td><td>I am lucky, I am fresh</td></tr>
+<tr><td>wata jee jah pawa</td><td>here I the power</td></tr>
+<tr><td>wamma jee, sleemo</td><td>pay me, slimeball</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat verse (2:25)</i></td></tr>
+</table>
+
+<p>(The verse is obviously a mess; it's not even entirely clear where the word boundaries are.  "mikiyuna chess ko yuna" doesn't entirely make sense; perhaps "jeeska" (keep) or "cheeska" (cheat) instead of "chess ko"?  "wata" in the bridge is a guess; could be "waba" (wish) or something else.)</p>
+
+<hr/>
+
+<h4>13. Utinni</h4>
+
+<p>Utinni means roughly "Wow" in Jawa.  This is just a fragment.</p>
+
+<table>
+<tr><td width="50%"><i>first verse (0:50)</i></td><td width="50%">&nbsp;</td></tr>
+<tr><td>[seetooya] [votoka]</td><td>[?] [?]</td></tr>
+<tr><td>[seetooya] [votoka]</td><td></td></tr>
+<tr><td>utinni [voxaga]</td><td>wow [?]</td></tr>
+<tr><td>utinni [voxaga]</td><td></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat first verse (1:00)</i></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>second verse (1:09)</i></td></tr>
+<tr><td>m'um m'aloo lopima</td><td>greetings stars</td></tr>
+<tr><td>m'um m'aloo lopima</td><td></td></tr>
+<tr><td>eyeta [kokoozah]</td><td>friend [jar k'osa = large??]</td></tr>
+<tr><td>eyeta [kokoozah]</td><td></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat second verse (1:17)</i></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat first verse (2:03)</i></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><i>repeat second verse (2:12)</i></td></tr>
+</table>
+
+
+<hr/>
+
+<h4>10. Una Duey Dee</h4>
+
+<p>The title is Gungan for "One Two Three".  There is not a large enough Gungan vocabulary available to do a translation.</p>
 
 
 
-<!--
-<iframe title="Spotify Embed: Star Wars: Galaxy's Edge Oga's Cantina: R3X's Playlist #1" width="300" height="380" allowtransparency="true" frameborder="0" allow="encrypted-media" src="https://open.spotify.com/embed/album/2UaqneQVFLgZ65ymj8h3Aj"></iframe>
 
-<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/star-wars-galaxys-edge-ogas-cantina-r3xs-playlist-1/1478016479"></iframe>
--->
+
 
 </div>
 
 </body>
 </html>
+
+
+<!--
+<iframe title="Spotify Embed: Star Wars: Galaxy's Edge Oga's Cantina: R3X's Playlist #1" width="300" height="380" allowtransparency="true" frameborder="0" allow="encrypted-media" src="https://open.spotify.com/embed/album/2UaqneQVFLgZ65ymj8h3Aj"></iframe>
+
+<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="392" style="width:100%;max-width:660px;overflow:hidden;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/star-wars-galaxys-edge-ogas-cantina-r3xs-playlist-1/1478016479"></iframe>
+-->
+
+
+<!--
+https://www.reddit.com/r/GalaxysEdge/comments/mufjx6/ogas_soundtrack_question/
+https://www.reddit.com/r/GalaxysEdge/comments/f49mxj/goola_bukee_song_translation/
+
+https://aurekfonts.tumblr.com/post/639880943207940096/una-duey-dee-lyric-transliteration
+-->
