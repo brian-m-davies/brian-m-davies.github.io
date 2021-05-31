@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Brian Davies</title>
+<meta charset="UTF-8">
+<meta name="description" content="Identifying the paintings and songs in the Grateful Dead documentary Long Strange Trip">
+<meta name="keywords" content="Grateful Dead, Long Strange Trip, Amir Bar-Lev, artwork, paintings, songs, song versions">
+<meta name="author" content="Brian Davies">
+
+<base target="_blank">
+
+<script>
+
+// Set Controller
+
+var videostopped = true;
+var mouseoverscroller = false;
+
+function videoplay ()
+{
+	videostopped = false;
+	
+	document.getElementById ("paintinglist").style.overflowY = "hidden";
+}
+
+function videopause ()
+{
+	videostopped = true;
+	
+	document.getElementById ("paintinglist").style.overflowY = "scroll";
+}
+
+function videoseek (evt)
+{
+	if (videostopped && ! mouseoverscroller)
+		document.getElementById ("paintinglist").style.overflowY = "hidden";
+}
+
+function videoseeked (evt)
+{
+	if (videostopped && ! mouseoverscroller)
+		document.getElementById ("paintinglist").style.overflowY = "scroll";
+}
+
+function scrollover (evt)
+{
+	mouseoverscroller = true; 
+}
+
+function scrollout (evt)
+{
+	mouseoverscroller = false;
+}
+
+// Set Scroll From Video Time
+
+function videotimeupdate (evt)
+{
+	if (document.getElementById ("paintinglist").style.overflowY == "hidden")
+	{
+		var newpainting = findpaintingattime (evt.target.currentTime);
+		
+		document.getElementById ("paintinglist").scrollTop = newpainting.offsetTop;
+	}
+}
+
+// Set Video Time From Scroll
+
+function scrollupdate (evt)
+{
+	if (document.getElementById ("paintinglist").style.overflowY == "scroll")
+	{
+		var painting = findpaintingatoffset (evt.target.scrollTop);
+		
+		document.getElementById ("thevid").currentTime = getpaintingtimestamp (painting) + 3;
+	}
+}
+
+// Find Painting
+
+function findpaintingattime (seconds)
+{
+	var paintings = document.getElementsByClassName ("painting");
+	
+	for (var i = 0; i < paintings.length; i ++)
+	{
+		if (paintings [i].id)
+		{
+			if (getpaintingtimestamp (paintings [i]) >= seconds)
+			{
+				if (i == 0)
+					return paintings [i]
+				else
+					return paintings [i - 1];
+			}
+		}
+	}
+	
+	return paintings [paintings.length - 1];
+}
+
+function findpaintingatoffset (offset)
+{
+	var paintings = document.getElementsByClassName ("painting");
+	
+	for (var i = 0; i < paintings.length; i ++)
+	{
+		if (paintings [i].offsetTop > offset - paintings [i].offsetHeight / 3)
+		{
+			return paintings [i];
+		}
+	}
+	
+	return paintings [paintings.length - 1];
+}
+
+// Get Timestamp
+
+function getpaintingtimestamp (object)
+{
+	return parseFloat (object.id.substring (1));
+}
+
+</script>
+
+<style>
+
+@font-face {
+	font-family: 'Futura TS'; font-weight: 900; font-style: normal;
+	src: local('Futura TS Heavy'), local('Futura-TS-Heavy'),
+		url('FuturaTS/FuturaTS-Heavy.woff2') format('woff2'),
+		url('FuturaTS/FuturaTS-Heavy.woff') format('woff'),
+		url('FuturaTS/FuturaTS-Heavy.ttf') format('truetype'); }
+
+@font-face {
+	font-family: 'Futura TS'; font-weight: 500; font-style: normal;
+	src: local('Futura TS Medium'), local('Futura-TS-Medium'),
+		url('FuturaTS/FuturaTS-Medium.woff2') format('woff2'),
+		url('FuturaTS/FuturaTS-Medium.woff') format('woff'),
+		url('FuturaTS/FuturaTS-Medium.ttf') format('truetype'); }
+
+html, body { height: 100%, width: 100%; }
+
+html { background: linear-gradient(to bottom right, #c8c8c8 0%, #dddddd 20%, #dddddd 60%, #b2b2b2 100%); background-attachment: fixed; }
+body { margin: 64px 80px; font-family: "Futura TS"; }
+
+h1, h2, h3 { font-family: "Futura TS"; font-weight: 900; text-transform: uppercase; }
+
+h1 { font-size: 32pt; margin: 48px 0px 18px 0px; }
+h2 { font-size: 24pt; margin: 48px 0px 18px 0px; }
+h3 { font-size: 16pt; margin: 32px 0px 18px 0px; }
+p { font-size: 11pt; }
+
+a { color: black; }
+
+div.painting { height: 280px; padding: 16px; overflow: hidden; }
+div.painting img { float: left; margin-right: 16px; max-height: 280px; max-width: 60%; }
+div.painting h3 { margin: 0px; }
+div.painting p { margin: 4px 0px; }
+div.painting h3 a { text-decoration: none; }
+
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Long Strange Trip</h1>
+
+<img src="longstrangetrip.jpg" style="width: 120px; float: left; border: 1px solid gray; margin-right: 32px;"/>
+
+<p>If you haven't seen the documentary Long Strange Trip, <a href="https://www.amazon.com/Long-Strange-Trip-Season-1/dp/B086HXZFL2">go see it</a>.  It's great.</p>
+
+<p>The film features a lot of amazing art and music.  The credits only list a fraction of the artwork.  The soundtrack album only features a fraction of the songs, and some are different versions than what is used in the movie.  This is an attempt to fill in the gaps, for people who want to track down the original artwork and song versions.</p>
+
+<p>All rights to the clip are held by Amazon Video.</p>
+
+
+
+<h2>The Artwork</h2>
+
+
+<!-- <iframe src="https://player.vimeo.com/video/237995327" width="640" height="360" frameborder="0"></iframe> -->
+
+<div style="max-width: 640px; margin: 24px auto;">
+<video id="thevid" src="longstrangetrip-titles.mp4" width="100%" controls disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" onplay="videoplay ();" onpause="videopause ();" onseeking="videoseek (event);" onseeked="videoseeked (event);" ontimeupdate="videotimeupdate (event);">
+</div>
+
+<div id="paintinglist" style="position: relative; max-width: 640px; height: 312px; margin: 24px auto; background-color: white; overflow-y: scroll; border: 1px solid #b2b2b2;" onmouseover="scrollover (event);" onmouseout="scrollout (event);" onscroll="scrollupdate (event);">
+
+
+<div class="painting" id="t0">
+<h3><a href="https://www.poetryfoundation.org/poems/47652/because-i-could-not-stop-for-death-479">Because I Could Not Stop For Death</a></h3>
+<p>Poem by Emily Dickinson, published posthumously in "Poems: Series 1", 1890</p>
+</div>
+
+<div class="painting" id="t15.2">
+<h3><a href="https://www.artic.edu/artworks/51535/image-of-death-imago-mortis-from-the-nuremberg-chronicle">
+<img src="raw/1-imago-mortis.jpg"/>
+Imago Mortis</a></h3>
+<p>Woodcut by <a href="https://en.wikipedia.org/wiki/Michael_Wolgemut">Michael Wolgemut</a> for the <a href="https://en.wikipedia.org/wiki/Nuremberg_Chronicle">Nuremberg Chronicle</a>, Germany, 1493</p>
+</div>
+
+
+<div class="painting" id="t27.8">
+<h3><a href="https://i0.wp.com/freethoughtblogs.com/affinity/files/2018/06/Basel1.jpg">
+<img src="raw/2-dance-of-death-basel.jpg"/>
+The Ossuary</a></h3>
+<p>Lithograph by C. Danzer from a watercolor by Hieronymus Hess, from The Dance of Death at Basel, Switzerland, 1839-1841 (Hess' <a href="http://www.dodedans.com/Ebasel-hess.htm">copy</a> is based on a 1773 <a href="http://www.dodedans.com/Ebasel-buechel.htm">copy</a> by Emanuel Büchel, as the original <a href="http://www.dodedans.com/Ebasel.htm">mural</a> was destroyed in 1805)</p>
+</div>
+
+
+<div class="painting" id="t38.6">
+<h3>Long Strange Trip</h3>
+<p>Lyric from Truckin', Robert Hunter, American, 1970
+</div>
+
+
+<div class="painting" id="t44.4">
+<h3><a href="https://painting-planet.com/three-ages-of-woman-and-death-by-hans-baldung/">
+<img src="raw/3-three-ages-of-woman-and-death.jpg"/>
+Three Ages of Woman and Death</a></h3>
+<p>Painting by <a href="https://en.wikipedia.org/wiki/Hans_Baldung">Hans Baldung Grien</a>, Germany, 1510</p>
+</div>
+
+
+<div class="painting" id="t54.4">
+<h3><a href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Genga_front.jpg">
+<img src="raw/4-anatomia.jpg"/>
+Ingredimur Cuncti, Dives Cum Paupere Mixtus</a></h3>
+<p>Copperplate engraving on page 7 of <a href="https://collections.nlm.nih.gov/catalog/nlm:nlmuid-2353013R-bk">Anatomia per Uso et Intelligenza del Disegno</a>, by anatomist <a href="https://en.wikipedia.org/wiki/Bernardino_Genga">Bernardino Genga</a> and artist <a href="https://en.wikipedia.org/wiki/Charles_Errard">Charles Errard</a>, published by Domenico De Rossi, Rome Italy, 1691</p>
+</div>
+
+<!--
+https://www.christies.com/features/Halloween-Death-and-desire-7771-1.aspx
+-->
+
+
+
+<div class="painting" id="t61.6">
+<h3><a href="https://wellcomecollection.org/works/rsxkedbw">
+<img src="raw/5-representation-de-la-mort.jpg"/>
+Representation De La Mort</a></h3>
+<p>Multiple variants exist with slight differences, the more common <a href="http://collections.vam.ac.uk/item/O114220/print-dieu-antoine/">reverse image</a> is by artist <a href="https://en.wikipedia.org/wiki/Antoine_Dieu">Antoine Dieu</a> and engraver <a href="https://en.wikipedia.org/wiki/Johann_Theodor_de_Bry">Johann Theodor De Bry</a>, France, 1593</p>
+</div>
+
+
+<div class="painting" id="t70">
+<h3><a href="https://www.britishmuseum.org/collection/object/P_1848-0708-120">
+<img src="raw/6-death-and-the-sleeping-woman.jpg"/>
+O. Die Stund Ist Aus</a></h3>
+<p>Engraving by <a href="https://en.wikipedia.org/wiki/Sebald_Beham">Sebald Beham</a>, a reverse copy of the original engraving by his brother <a href="https://en.wikipedia.org/wiki/Barthel_Beham">Barthel Beham</a>, Germany, 1548</p>
+</div>
+
+
+<div class="painting" id="t78.8">
+<h3><a href="https://www.nlm.nih.gov/exhibition/historicalanatomies/Images/1200_pixels/bidloo_t87.jpg">
+<img src="raw/7-skeleton-rising-from-tomb.jpg"/>
+Skeleton Rising from Tomb</a></h3>
+<p>Table 87 from <a href="https://www.nlm.nih.gov/exhibition/historicalanatomies/bidloo_home.html">Anatomia Humani Corporis</a>, published by <a href="https://en.wikipedia.org/wiki/Govert_Bidloo">Govert Bidloo</a> from drawings by <a href="https://en.wikipedia.org/wiki/Gerard_de_Lairesse">Gerard de Lariesse</a>, Dutch, 1685</p>
+</div>
+
+
+<div class="painting" id="t84.4">
+<h3><a href="https://artsandculture.google.com/asset/spotprent-op-de-stijve-plooikraag-ca-1600/pQFeU8ijFJ1Rmw">
+<img src="raw/8-spotprent-op-de-stijve-plooikraag.png"/>
+Spotprent op de stijve plooikraag</a></h3>
+<p>Anonymous engraving, Netherlands, circa ~1600</p>
+</div>
+
+
+<div class="painting" id="t93.6">
+<h3><a href="https://commons.wikimedia.org/wiki/File:Memento_homo.jpg">
+<img src="raw/9-memento-homo.jpg"/>
+Memento Homo Quod Sinis Es Et In Sinere Reverteris</a></h3>
+<p>Color plate on <a href="https://www.bl.uk/collection-items/full-page-miniature-of-the-office-of-the-dead-from-the-hours-of-rene-of-anjou">page f.53r</a>  of <a href="http://www.bl.uk/manuscripts/Viewer.aspx?ref=egerton_ms_1070_fs001ar">The Book of Hours of René d'Anjou</a>, produced for the Duke of Anjou by the workshop of the Rohan Master, Paris, 1405-1410</p>
+</div>
+
+
+
+<div class="painting" id="t101.4">
+<h3><a href="https://commons.wikimedia.org/wiki/File:Death_as_a_strangler._Wood_engraving_by_Steinbrecher_after_A_Wellcome_V0042238.jpg">
+<img src="raw/10-death-as-a-strangler.jpg"/>
+Death as a Strangler</a></h3>
+<p>Woodcut by Steinbrecher from the original by <a href="https://en.wikipedia.org/wiki/Alfred_Rethel">Alfred Rethel</a>, inspired by an <a href="https://www.clevelandart.org/art/1939.620">1831 outbreak of Cholera in Paris</a>, 1851</p>
+</div>
+
+
+
+<div class="painting" id="t107.4">
+<h3><a href="https://commons.wikimedia.org/wiki/File:Angelo_Jank_-_Der_Tod_im_Baum,_1897.jpg">
+<img src="raw/11-der-tod-im-baum.jpg"/>
+Der Tod im Baum</a></h3>
+<p><a href="https://en.wikipedia.org/wiki/Angelo_Jank">Angelo Jank</a>, published in the German magazine <a href="https://en.wikipedia.org/wiki/Jugend_(magazine)">Jugend</a> in 1897</p>
+</div>
+
+
+<div class="painting" id="t114.8">
+<h3><a href="https://digi.ub.uni-heidelberg.de/diglit/totentanz1488/0003">
+<img src="raw/12-heidelberg-totentanz.jpg"/>
+Introduction</a></h3>
+<p>One of 38 woodcuts from the book <a href="https://digi.ub.uni-heidelberg.de/diglit/totentanz1488/0001/thumbs">Heidelberg Totentanz</a>, printed by Heinrich Knoblochtzer, Germany, 1488</p>
+</div>
+
+
+
+
+<div class="painting" id="t120.2">
+<h3><a href="https://commons.wikimedia.org/wiki/File:Mors_ultima_linea_rerum.jpg">
+<img src="raw/13-death-the-final-boundary.jpg"/>
+Mors Ultima Linea Rerum</a></h3>
+<p>Multiple variants exist with slight differences, most credited to Philips Galle or Egbert van Panderen, circa ~1570</p>
+</div>
+
+
+<div class="painting" id="t125.4">
+<h3><a href="http://www.aeclectic.net/tarot/cards/ancient-lombardy/">
+<img src="raw/14-tarot-of-lombardy.jpg"/>
+Card from Ancient Tarot of Lombardy</a></h3>
+<p>Published by Ferdinando Gumppenberg, Milano Italy, 1810</p>
+</div>
+
+
+
+<div class="painting" id="t132.6">
+<h3><a href="https://images.app.goo.gl/ZCboV1YuAMYqyhHM6">
+<img src="raw/15-tarot-of-marsailles.jpg"/>
+Card from Tarot Of Marsailles</a></h3>
+<p>From the modern recreation of the <a href="https://en.wikipedia.org/wiki/Tarot_of_Marseilles">Tarot Of Marsailles</a> designed by Paul Marteau circa 1930 and printed by BP Grimaud, based on the <a href="https://en.wikipedia.org/wiki/Tarot_of_Marseilles#/media/File:Jean_Dodal_Tarot_trump_13.jpg">15th century original</a></p>
+</div>
+
+
+
+
+<div class="painting" id="t141">
+<h3><a href="https://commons.wikimedia.org/wiki/File:Hans_Baldung_-Death_and_the_Maiden-_WGA01190.jpg">
+<img src="raw/16-death-and-the-maiden.jpg"/>
+Death and the Maiden</a></h3>
+<p>One of several paintings by <a href="https://en.wikipedia.org/wiki/Hans_Baldung">Hans Baldung Grien</a> with the same name, Germany, 1518-20</p>
+</div>
+
+
+</div>
+
+
+<p>Bonus painting: Late in Act I when they change the band name from the Warlocks to The Grateful Dead is a montage where they reuse a number of those, and also include <a href="https://www.swissinfo.ch/blob/283066/fa9dd2307dac0f6d6f85e528eec7ada8/sriimg20090505_10659967_0-data.jpg">Portrait of Hieronymus Tschekkenbürlin with Death</a>, currently in the Kunstmuseum in Basel, Basler Meister, 1487  (maybe 1445?)</p>
+
+
+
+<h2>The Songs</h2>
+
+<p>This is incomplete, but a far better representation of the music in the documentary than the official soundtrack.</p>
+
+<p>The 13 songs on the official soundtrack are marked &#9733;.  The soundtrack also has a number of renditions that are almost certainly not in the movie (ie: Dark Star 2/14/1970, Eyes Of The World 8/6/1974, or Dark Hollow 10/7/1980).</p>
+
+
+<h3>Act 1 - It’s Alive</h3></p>
+
+<p>Death Have No Mercy [opening credits] - Fillmore West 3/2/69 (Live Dead version) &#9733;</p>
+<p>St. Stephen [Frankenstein] - Fillmore West 2/27/69 Live Dead (Live Dead version) &#9733;</p>
+<p>St. Stephen [band origin story] - studio take with isolated guitar and glockenspiel</p>
+<p>Cumberland Blues [McNally tells how he joined] - studio take without vocal track</p>
+<p>(jazz drumming) [Brigid Meier intro]</p>
+<p>(jazz piano) [coffeehouses]</p>
+<p>I Was Born Ten Thousand Years Ago by Jerry Garcia and Robert Hunter [Alan Trist] - Brigid Meier home tape</p>
+<p>Friend Of The Devil [Dylan Thomas] - studio take without vocal track</p>
+<p>(jazz trumpet) [Breathless]</p>
+<p>(several short bluegrass snippets, including Blue Grass Breakdown by Bill Monroe) [bluegrass]</p>
+<p>Ain’t It Crazy (The Rub) by Mother McCree’s Uptown Jug Champions [Pigpen intro] - Tangent Coffee House, Palo Alto, July 64</p>
+<p>(banjo) [practice]</p>
+<p>Stealin’ [Phil intro] - probably Complete Studio Rarities version</p>
+<p>Cold Rain And Snow [the world opened up] - ??? (another Redditor said 5/24/70 but that’s slower)</p>
+<p>Ripple [Bill intro] - studio take with isolated guitar</p>
+<p>Caution (Do Not Stop On Tracks) [play 6 nights a week] - Golden Gate Studios 11/3/65</p>
+<p>The Other One [Merry Pranksters, LSD] - ?</p>
+<p>Viola Lee Blues [acid test] - ??? (another Redditor says acid test footage is Fillmore Auditorium 1/8/1966)</p>
+<p>Dark Star [LSD subject] - ??? soundtrack has 2/14/70 but don't think this is that, nor 2/27/69 (L/D), maybe check DP22?</p>
+<p>Turn On Your Lovelight [psychedelics] - Kings Beach Bowl 2/23/68 (DP22 version)</p>
+<p>Friend Of The Devil [deciding new name] - studio take without vocal track</p>
+<p>Morning Dew [name was perfect] - Kings Beach Bowl 2/24/68 (DP22 version)</p>
+<p>The Golden Road (To Unlimited Devotion) [Haight Ashbury] - studio take</p>
+<p>Cosmic Charlie [band living together] - studio take without vocal track</p>
+<p>That’s It For The Other One [no limitations] - Kings Beach Bowl 2/24/68 (DP22 version)</p>
+<p>Alligator [Mickey intro] - Kings Beach Bowl 2/24/68 (DP22 version)</p>
+<p>Feedback [Watts Towers] - Kings Beach Bowl 2/24/68 (DP22 version)</p>
+<p>Death Have No Mercy [closing] - Fillmore West 3/2/69 (Live Dead version)</p>
+
+<p><h3>Act 2 - This Is Now</h3></p>
+
+<p>Drums [the beam] - recording underlaid with Mickey playing at home</p>
+<p>St. Stephen [Bob pulling out old footage] - studio take with isolated glockenspiel plus overlay of the beam</p>
+<p>Till The Morning Comes [Cutler intro] - studio take without vocal track</p>
+<p>Ripple - [Cutler getting pulled over] - studio take with isolated drums and piano</p>
+<p>St. Stephen [flower in a clearing] - studio take with isolated glockenspiel and guitar</p>
+<p>Easy Wind [going to Europe] - studio take without vocal track</p>
+<p>Viola Lee Blues [WB head] - studio take</p>
+<p>China Cat Sunflower [in the studio] - studio take</p>
+<p>Doin’ That Rag [zoo] - studio take without vocal track</p>
+<p>The Eleven [collective improvisation] - Kings Beach Bowl 2/24/68 (DP22 version) against b/w video of Columbia 5/3/68</p>
+<p>Good Morning Little Schoolgirl [Rolling Stones] - studio take without vocal track</p>
+<p>Uncle John’s Band [search for America] - studio take</p>
+<p>Candyman [Workingman’s Dead] - backstage rehearsal from Hollywood Festival movie</p>
+<p>&nbsp; &raquo; Candyman - studio take</p>
+<p>Casey Jones [home run] - studio take</p>
+<p>Easy Wind [record advertisement] - studio take</p>
+<p>Uncle John’s Band [great record] - KQED studios 8/30/70 with video footage</p>
+<p>Easy Wind [television advertisement] - studio take</p>
+<p>Wild Thing by Jimi Hendrix [making a film] - Monterey 6/18/67 with video from Monterey Pop movie</p>
+<p>Cumberland Blues [photo shoot] - studio take without vocal track</p>
+<p>St. Stephen [dosing the cameraman] - CBS Studios 1/18/69 with video from Playboy After Dark</p>
+<p>Casey Jones [film crew under the influence] - Newcastle 5/24/70 with video from Hollywood Festival movie</p>
+<p>Death Don’t Have No Mercy [sabotage the film] - Fillmore West 3/2/69 (Live Dead version)</p>
+<p>St. Stephen [sacred space] - studio take with isolated glockenspiel</p>
+
+<p><h3>Act 3 - Let’s Go Get In The Band</h3></p>
+
+<p>Bird Song [making a living] - Veneta 8/27/72 with video from Sunshine Daydream movie</p>
+<p>Playing In The Band [Donna and Keith join] - Bremen 4/21/72 with blue screen video from Beat Club German TV &#9733;</p>
+<p>Truckin’ [roadies] - studio take without vocal track</p>
+<p>Cumberland Blues [all for one] - studio take</p>
+<p>Brown-Eyed Women [Europe '72 tour] - Tivoli 4/14/72 (Europe '72 version)</p>
+<p>Big Railroad Blues [Europe '72 tour] - Tivoli 4/17/72 with video of band in clown masks</p>
+<p>Sugar Magnolia [live album] - Paris 5/4/72 (Europe '72 version)</p>
+<p>Morning Dew [no one in the truck] - Lyceum 5/26/72 (Europe '72 version) &#9733;</p>
+<p>Ship Of Fools [John Perry Barlow intro] - studio take without vocal track</p>
+<p>Turn On Your Lovelight [Pigpen] - McMahon Stadium, Calgary 7/4/70 with video from Festival Express movie outtakes</p>
+<p>&nbsp; &raquo; overlaid with Pigpen rap about power from Fillmore acid test 1/8/66</p>
+<p>Katie Mae - [Pigpen] Fillmore East 2/13/70 (Bear’s Choice version)</p>
+<p>He’s Gone [death of Pigpen] - Veneta 8/27/72 &#9733;</p>
+
+<p><h3>Act 4 - Who’s In Charge Here?</h3></p>
+
+<p>China Cat Sunflower... [anything can happen] - Winterland 10/17/74 with video from Grateful Dead Movie bonus footage</p>
+<p>The Other One [Wall of Sound] - ? (another Redditor suggested 4/21/72, but I don’t think so)</p>
+<p>Space? [Owsley Stanley] - ?</p>
+<p>Not Fade Away [Wall of Sound] - Manhattan Center, NY, 4/5/71</p>
+<p>? [setting up the wall] - ?</p>
+<p>Dupree’s Diamond Blues [decision making] - studio take without vocal track</p>
+<p>The Music Never Stopped [situation is the boss] - Great American Music Hall 8/13/75 (One From The Vault version) &#9733;</p>
+<p>Cosmic Charlie [nitrous] - studio take without vocal track</p>
+<p>St. Stephen [drugs] - studio take with isolated glockenspiel, guitar</p>
+<p>Friend Of The Devil [Hell’s Angels] - studio take without vocal track, then vocals</p>
+<p>Drums [Altamont] - Mickey playing the beam at home</p>
+<p>Help On The Way [it’s all too much] - studio take without vocal track</p>
+<p>...I Know You Rider [Grateful Dead movie] - Winterland 10/17/74 with video from Grateful Dead movie bonus footage</p>
+<p>Death Don’t Have No Mercy [hiatus] - Fillmore West 3/2/69 (Live Dead version)</p>
+<p>Tangled Up In Blue by Jerry Garcia Band [Garcia band] - Asbury Park 7/9/77 with b/w footage</p>
+<p>Johnny B Goode [return from hiatus] - Winterland 12/31/78 with video from Closing Of Winterland</p>
+<p>Fire On The Mountain [Egypt] - Egypt 9/16/78 with video footage</p>
+
+<p><h3>Act 5 - Dead Heads</h3></p>
+
+<p>Tuning? [Al Franken] - footage is Fillmore Auditorium 1/8/1966?</p>
+<p>New Speedway Boogie [deadheads] - studio take without vocal track</p>
+<p>Dupree’s Diamond Blues [WB studio head’s book] - studio take without vocal track</p>
+<p>Bertha [new lame America] - maybe 4/27/71 (Skull & Roses version) without vocals ???</p>
+<p>On The Road Again [deadheads] - Radio City 10/30/80 (Reckoning version) (without using the existing video footage on Dead Ahead)</p>
+<p>Morning Dew [mentored] - Lyceum 5/26/72 (Europe '72 version)</p>
+<p>(bass solo) [this is for me] - ??? this leads into Eyes, but it’s spliced in from somewhere else</p>
+<p>Eyes Of The World [this is for me] - Great American Music Hall 8/13/75 (One From The Vault version)</p>
+<p>(tibetan music) [mandala]</p>
+<p>Scarlet Begonias [tapers] - Cornell 5/8/77 &#9733;</p>
+<p>Shakedown Street [doubled our audience] - Capitol Theater, Passaic, NJ, 11/24/78 with video footage</p>
+<p>Franklin’s Tower [100 tapes] - Sportatorium 5/22/77 (Dick's Picks 3 version) (thanks to u/terapinstati0n24 for 3 of the next 4)</p>
+<p>Dark Star [100 tapes] - Wembley 4/8/72</p>
+<p>China Cat Sunflower [1971 sounds like this] - Chateau D’Herouvile 6/21/71 with b/w footage &#9733;</p>
+<p>Here Comes Sunshine [1973 sounds like this] - Boston 4/2/73 (Dave's Picks 21 version) against video footage of UC Santa Barbara 5/20/73</p>
+<p>Dancing In The Street [variations] - probably Tompkins Square Park NY 6/1/67</p>
+<p>&nbsp; &raquo; Dancing In The Street [variations] - ??? crummy b/w footage (early 77, from Bob’s beard)</p>
+<p>Althea [Al Franken] - Nassau 5/16/80 &#9733;</p>
+<p>I Need A Miracle [scoring tickets] - studio take</p>
+<p>Good Loving [Brent joins] - Radio City 10/31/80 with video from Dead Ahead</p>
+<p>Drums [drums] - ??? with video footage of two different shows, looks like 1980?</p>
+<p>Stella Blue [cosmic koan] - OK 7/5/81, against video of Radio City 10/31/80 &#9733;</p>
+<p>Dire Wolf [Robert Hunter] - studio take</p>
+<p>Dark Star [says what it means] - ??? 2/14/70 is on the soundtrack, but not sure this is that</p>
+<p>Not Fade Away [growing old together] - ??? audio against footage of a daytime show, then segue into Buffalo 7/4/89 video?</p>
+
+<p><h3>Act 6 - It Becomes Everything</h3></p>
+
+<p>Brokedown Palace [don’t want to be the king] - SF 12/31/83 with video footage</p>
+<p>Candyman [Trixie] - studio take without vocal track</p>
+<p>Space [coma] - ???</p>
+<p>Touch Of Grey [In The Dark] - studio take, against video of several different shows</p>
+<p>New Speedway Boogie [overflow] - studio take</p>
+<p>Lost Sailor [everybody can do whatever they want] - studio take</p>
+<p>? [the early days] - brief clip</p>
+<p>Dear Mr. Fantasy [beset by people] - Foxboro 7/2/89 with video footage &#9733;</p>
+<p>Dark Hollow [Brigid] - Fillmore East 2/14/70 (Bear’s Choice version)</p>
+<p>Friend Of The Devil [went to Hawaii] - studio take without vocal track</p>
+<p>Brokedown Palace [SCUBA] - studio take without vocal track</p>
+<p>Days Between [last masterpiece] - studio take segues into MSG 10/18/94 &#9733;</p>
+<p>China Doll [decline] - studio take</p>
+<p>St. Stephen [touch people’s hearts] - studio take without vocal track</p>
+<p>Death Don’t Have No Mercy [AMC interview] - audio is Hampton 10/9/89, against video of some other night (shirt and guitar strap don't match Hampton)</p>
+<p>Brokedown Palace [Jerry’s death] - studio take</p>
+<p>Ripple [closing credits] - Radio City 10/31/80 with video from Dead Ahead</p>
+<p>Not Fade Away [music credits] - Cornell 5/8/77 &#9733;
+
+
+</body>
+</html>
