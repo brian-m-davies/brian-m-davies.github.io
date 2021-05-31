@@ -154,6 +154,11 @@ p { font-size: 11pt; }
 
 a { color: black; }
 
+
+div.videopanel, div.paintinglist { max-width: 640px; margin: 24px auto; }
+
+div.paintinglist { height: 312px; background-color: white; border: 1px solid #b2b2b2; }
+
 div.painting { height: 280px; padding: 16px; overflow: hidden; }
 div.painting img { float: left; margin-right: 16px; max-height: 280px; max-width: 60%; }
 div.painting h3 { margin: 0px; }
@@ -167,28 +172,30 @@ div.painting h3 a { text-decoration: none; }
 
 <body>
 
-<h1>Long Strange Trip</h1>
+<img src="longstrangetrip.jpg" style="width: 28%; float: right; border: 1px solid #b2b2b2; margin-left: 32px; margin-bottom: 24px;"/>
 
-<img src="longstrangetrip.jpg" style="width: 120px; float: left; border: 1px solid gray; margin-right: 32px;"/>
+<h1>Long Strange Trip</h1>
 
 <p>If you haven't seen the documentary Long Strange Trip, <a href="https://www.amazon.com/Long-Strange-Trip-Season-1/dp/B086HXZFL2">go see it</a>.  It's great.</p>
 
 <p>The film features a lot of amazing art and music.  The credits only list a fraction of the artwork.  The soundtrack album only features a fraction of the songs, and some are different versions than what is used in the movie.  This is an attempt to fill in the gaps, for people who want to track down the original artwork and song versions.</p>
 
-<p>All rights to the clip are held by Amazon Video.</p>
+<p>All rights to the film content are held by Amazon Video.</p>
 
 
+<h2 style="clear: both;">The Artwork</h2>
 
-<h2>The Artwork</h2>
-
+<p>The title sequence is a montage of 16 different artworks.  Play the movie, or scroll the panel below, for a tour.  Click the images and links for larger versions and more information on the pieces.</p>
 
 <!-- <iframe src="https://player.vimeo.com/video/237995327" width="640" height="360" frameborder="0"></iframe> -->
 
-<div style="max-width: 640px; margin: 24px auto;">
-<video id="thevid" src="longstrangetrip-titles.mp4" width="100%" controls disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" onplay="videoplay ();" onpause="videopause ();" onseeking="videoseek (event);" onseeked="videoseeked (event);" ontimeupdate="videotimeupdate (event);">
+<div class="videopanel">
+<video id="thevid" src="longstrangetrip-titles.mp4" width="100%" controls preload="auto" controlsList="nodownload nofullscreen noremoteplayback" onplay="videoplay ();" onpause="videopause ();" onseeking="videoseek (event);" onseeked="videoseeked (event);" ontimeupdate="videotimeupdate (event);">
 </div>
 
-<div id="paintinglist" style="position: relative; max-width: 640px; height: 312px; margin: 24px auto; background-color: white; overflow-y: scroll; border: 1px solid #b2b2b2;" onmouseover="scrollover (event);" onmouseout="scrollout (event);" onscroll="scrollupdate (event);">
+
+
+<div id="paintinglist" class="paintinglist" style="position: relative; overflow-y: scroll;" onmouseover="scrollover (event);" onmouseout="scrollout (event);" onscroll="scrollupdate (event);">
 
 
 <div class="painting" id="t0">
@@ -198,7 +205,7 @@ div.painting h3 a { text-decoration: none; }
 
 <div class="painting" id="t15.2">
 <h3><a href="https://www.artic.edu/artworks/51535/image-of-death-imago-mortis-from-the-nuremberg-chronicle">
-<img src="raw/1-imago-mortis.jpg"/>
+<img src="small/1-imago-mortis.jpg"/>
 Imago Mortis</a></h3>
 <p>Woodcut by <a href="https://en.wikipedia.org/wiki/Michael_Wolgemut">Michael Wolgemut</a> for the <a href="https://en.wikipedia.org/wiki/Nuremberg_Chronicle">Nuremberg Chronicle</a>, Germany, 1493</p>
 </div>
@@ -206,13 +213,13 @@ Imago Mortis</a></h3>
 
 <div class="painting" id="t27.8">
 <h3><a href="https://i0.wp.com/freethoughtblogs.com/affinity/files/2018/06/Basel1.jpg">
-<img src="raw/2-dance-of-death-basel.jpg"/>
+<img src="small/2-dance-of-death-basel.jpg"/>
 The Ossuary</a></h3>
 <p>Lithograph by C. Danzer from a watercolor by Hieronymus Hess, from The Dance of Death at Basel, Switzerland, 1839-1841 (Hess' <a href="http://www.dodedans.com/Ebasel-hess.htm">copy</a> is based on a 1773 <a href="http://www.dodedans.com/Ebasel-buechel.htm">copy</a> by Emanuel Büchel, as the original <a href="http://www.dodedans.com/Ebasel.htm">mural</a> was destroyed in 1805)</p>
 </div>
 
 
-<div class="painting" id="t38.6">
+<div class="painting" id="t38.8">
 <h3>Long Strange Trip</h3>
 <p>Lyric from Truckin', Robert Hunter, American, 1970
 </div>
@@ -220,7 +227,7 @@ The Ossuary</a></h3>
 
 <div class="painting" id="t44.4">
 <h3><a href="https://painting-planet.com/three-ages-of-woman-and-death-by-hans-baldung/">
-<img src="raw/3-three-ages-of-woman-and-death.jpg"/>
+<img src="small/3-three-ages-of-woman-and-death.jpg"/>
 Three Ages of Woman and Death</a></h3>
 <p>Painting by <a href="https://en.wikipedia.org/wiki/Hans_Baldung">Hans Baldung Grien</a>, Germany, 1510</p>
 </div>
@@ -228,7 +235,7 @@ Three Ages of Woman and Death</a></h3>
 
 <div class="painting" id="t54.4">
 <h3><a href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Genga_front.jpg">
-<img src="raw/4-anatomia.jpg"/>
+<img src="small/4-anatomia.jpg"/>
 Ingredimur Cuncti, Dives Cum Paupere Mixtus</a></h3>
 <p>Copperplate engraving on page 7 of <a href="https://collections.nlm.nih.gov/catalog/nlm:nlmuid-2353013R-bk">Anatomia per Uso et Intelligenza del Disegno</a>, by anatomist <a href="https://en.wikipedia.org/wiki/Bernardino_Genga">Bernardino Genga</a> and artist <a href="https://en.wikipedia.org/wiki/Charles_Errard">Charles Errard</a>, published by Domenico De Rossi, Rome Italy, 1691</p>
 </div>
@@ -239,25 +246,25 @@ https://www.christies.com/features/Halloween-Death-and-desire-7771-1.aspx
 
 
 
-<div class="painting" id="t61.6">
+<div class="painting" id="t61.4">
 <h3><a href="https://wellcomecollection.org/works/rsxkedbw">
-<img src="raw/5-representation-de-la-mort.jpg"/>
+<img src="small/5-representation-de-la-mort.jpg" style="max-width: 40%;"/>
 Representation De La Mort</a></h3>
 <p>Multiple variants exist with slight differences, the more common <a href="http://collections.vam.ac.uk/item/O114220/print-dieu-antoine/">reverse image</a> is by artist <a href="https://en.wikipedia.org/wiki/Antoine_Dieu">Antoine Dieu</a> and engraver <a href="https://en.wikipedia.org/wiki/Johann_Theodor_de_Bry">Johann Theodor De Bry</a>, France, 1593</p>
 </div>
 
 
-<div class="painting" id="t70">
+<div class="painting" id="t69.8">
 <h3><a href="https://www.britishmuseum.org/collection/object/P_1848-0708-120">
-<img src="raw/6-death-and-the-sleeping-woman.jpg"/>
+<img src="small/6-death-and-the-sleeping-woman.jpg"/>
 O. Die Stund Ist Aus</a></h3>
 <p>Engraving by <a href="https://en.wikipedia.org/wiki/Sebald_Beham">Sebald Beham</a>, a reverse copy of the original engraving by his brother <a href="https://en.wikipedia.org/wiki/Barthel_Beham">Barthel Beham</a>, Germany, 1548</p>
 </div>
 
 
-<div class="painting" id="t78.8">
+<div class="painting" id="t78.6">
 <h3><a href="https://www.nlm.nih.gov/exhibition/historicalanatomies/Images/1200_pixels/bidloo_t87.jpg">
-<img src="raw/7-skeleton-rising-from-tomb.jpg"/>
+<img src="small/7-skeleton-rising-from-tomb.jpg"/>
 Skeleton Rising from Tomb</a></h3>
 <p>Table 87 from <a href="https://www.nlm.nih.gov/exhibition/historicalanatomies/bidloo_home.html">Anatomia Humani Corporis</a>, published by <a href="https://en.wikipedia.org/wiki/Govert_Bidloo">Govert Bidloo</a> from drawings by <a href="https://en.wikipedia.org/wiki/Gerard_de_Lairesse">Gerard de Lariesse</a>, Dutch, 1685</p>
 </div>
@@ -265,7 +272,7 @@ Skeleton Rising from Tomb</a></h3>
 
 <div class="painting" id="t84.4">
 <h3><a href="https://artsandculture.google.com/asset/spotprent-op-de-stijve-plooikraag-ca-1600/pQFeU8ijFJ1Rmw">
-<img src="raw/8-spotprent-op-de-stijve-plooikraag.png"/>
+<img src="small/8-spotprent-op-de-stijve-plooikraag.jpg" style="max-width: 50%;"/>
 Spotprent op de stijve plooikraag</a></h3>
 <p>Anonymous engraving, Netherlands, circa ~1600</p>
 </div>
@@ -273,33 +280,33 @@ Spotprent op de stijve plooikraag</a></h3>
 
 <div class="painting" id="t93.6">
 <h3><a href="https://commons.wikimedia.org/wiki/File:Memento_homo.jpg">
-<img src="raw/9-memento-homo.jpg"/>
+<img src="small/9-memento-homo.jpg"/>
 Memento Homo Quod Sinis Es Et In Sinere Reverteris</a></h3>
 <p>Color plate on <a href="https://www.bl.uk/collection-items/full-page-miniature-of-the-office-of-the-dead-from-the-hours-of-rene-of-anjou">page f.53r</a>  of <a href="http://www.bl.uk/manuscripts/Viewer.aspx?ref=egerton_ms_1070_fs001ar">The Book of Hours of René d'Anjou</a>, produced for the Duke of Anjou by the workshop of the Rohan Master, Paris, 1405-1410</p>
 </div>
 
 
 
-<div class="painting" id="t101.4">
+<div class="painting" id="t101.2">
 <h3><a href="https://commons.wikimedia.org/wiki/File:Death_as_a_strangler._Wood_engraving_by_Steinbrecher_after_A_Wellcome_V0042238.jpg">
-<img src="raw/10-death-as-a-strangler.jpg"/>
+<img src="small/10-death-as-a-strangler.jpg"/>
 Death as a Strangler</a></h3>
 <p>Woodcut by Steinbrecher from the original by <a href="https://en.wikipedia.org/wiki/Alfred_Rethel">Alfred Rethel</a>, inspired by an <a href="https://www.clevelandart.org/art/1939.620">1831 outbreak of Cholera in Paris</a>, 1851</p>
 </div>
 
 
 
-<div class="painting" id="t107.4">
+<div class="painting" id="t107.2">
 <h3><a href="https://commons.wikimedia.org/wiki/File:Angelo_Jank_-_Der_Tod_im_Baum,_1897.jpg">
-<img src="raw/11-der-tod-im-baum.jpg"/>
+<img src="small/11-der-tod-im-baum.jpg"/>
 Der Tod im Baum</a></h3>
 <p><a href="https://en.wikipedia.org/wiki/Angelo_Jank">Angelo Jank</a>, published in the German magazine <a href="https://en.wikipedia.org/wiki/Jugend_(magazine)">Jugend</a> in 1897</p>
 </div>
 
 
-<div class="painting" id="t114.8">
+<div class="painting" id="t114.6">
 <h3><a href="https://digi.ub.uni-heidelberg.de/diglit/totentanz1488/0003">
-<img src="raw/12-heidelberg-totentanz.jpg"/>
+<img src="small/12-heidelberg-totentanz.jpg" style="max-width: 40%;"/>
 Introduction</a></h3>
 <p>One of 38 woodcuts from the book <a href="https://digi.ub.uni-heidelberg.de/diglit/totentanz1488/0001/thumbs">Heidelberg Totentanz</a>, printed by Heinrich Knoblochtzer, Germany, 1488</p>
 </div>
@@ -309,15 +316,15 @@ Introduction</a></h3>
 
 <div class="painting" id="t120.2">
 <h3><a href="https://commons.wikimedia.org/wiki/File:Mors_ultima_linea_rerum.jpg">
-<img src="raw/13-death-the-final-boundary.jpg"/>
+<img src="small/13-death-the-final-boundary.jpg"/>
 Mors Ultima Linea Rerum</a></h3>
 <p>Multiple variants exist with slight differences, most credited to Philips Galle or Egbert van Panderen, circa ~1570</p>
 </div>
 
 
-<div class="painting" id="t125.4">
+<div class="painting" id="t125.2">
 <h3><a href="http://www.aeclectic.net/tarot/cards/ancient-lombardy/">
-<img src="raw/14-tarot-of-lombardy.jpg"/>
+<img src="small/14-tarot-of-lombardy.jpg"/>
 Card from Ancient Tarot of Lombardy</a></h3>
 <p>Published by Ferdinando Gumppenberg, Milano Italy, 1810</p>
 </div>
@@ -326,7 +333,7 @@ Card from Ancient Tarot of Lombardy</a></h3>
 
 <div class="painting" id="t132.6">
 <h3><a href="https://images.app.goo.gl/ZCboV1YuAMYqyhHM6">
-<img src="raw/15-tarot-of-marsailles.jpg"/>
+<img src="small/15-tarot-of-marsailles.jpg"/>
 Card from Tarot Of Marsailles</a></h3>
 <p>From the modern recreation of the <a href="https://en.wikipedia.org/wiki/Tarot_of_Marseilles">Tarot Of Marsailles</a> designed by Paul Marteau circa 1930 and printed by BP Grimaud, based on the <a href="https://en.wikipedia.org/wiki/Tarot_of_Marseilles#/media/File:Jean_Dodal_Tarot_trump_13.jpg">15th century original</a></p>
 </div>
@@ -334,9 +341,9 @@ Card from Tarot Of Marsailles</a></h3>
 
 
 
-<div class="painting" id="t141">
-<h3><a href="https://commons.wikimedia.org/wiki/File:Hans_Baldung_-Death_and_the_Maiden-_WGA01190.jpg">
-<img src="raw/16-death-and-the-maiden.jpg"/>
+<div class="painting" id="t140.8">
+<h3><a href="https://commons.wikimedia.org/wiki/File:Hans_Baldung_-_Death_and_the_Maiden_-_WGA01190.jpg">
+<img src="small/16-death-and-the-maiden.jpg"/>
 Death and the Maiden</a></h3>
 <p>One of several paintings by <a href="https://en.wikipedia.org/wiki/Hans_Baldung">Hans Baldung Grien</a> with the same name, Germany, 1518-20</p>
 </div>
