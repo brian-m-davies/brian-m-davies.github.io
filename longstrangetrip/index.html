@@ -53,6 +53,16 @@ function scrollout (evt)
 	mouseoverscroller = false;
 }
 
+function scrolltouchstart (evt)
+{
+	scrollover (evt);
+}
+
+function scrolltouchend (evt)
+{
+	window.setTimeout (scrollout, 10);
+}
+
 // Set Scroll From Video Time
 
 function videotimeupdate (evt)
