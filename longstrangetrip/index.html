@@ -17,7 +17,7 @@
 var videostopped = true;
 var mouseoverscroller = false;
 
-var iOS = /iPad|iPhone|iPod/.test (navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+var iOS = /iPad|iPhone|iPod/.test (navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
 function videoplay ()
 {
@@ -71,7 +71,7 @@ function videotimeupdate (evt)
 
 function scrollupdate (evt)
 {		
-	if (document.getElementById ("paintinglist").style.overflowY == "scroll" && ! iOS)
+	if (document.getElementById ("paintinglist").style.overflowY == "scroll" && mouseoverscroller && ! iOS)
 	{
 		var painting = findpaintingatoffset (evt.target.scrollTop);
 		
