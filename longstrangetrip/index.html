@@ -59,7 +59,7 @@ function scrollout (evt)
 
 function videotimeupdate (evt)
 {
-	if (document.getElementById ("paintinglist").style.overflowY == "hidden")
+	if (document.getElementById ("paintinglist").style.overflowY == "hidden" || iOS)
 	{
 		var newpainting = findpaintingattime (evt.target.currentTime);
 		
@@ -71,6 +71,9 @@ function videotimeupdate (evt)
 
 function scrollupdate (evt)
 {
+	if (iOS)
+		alert (1);
+		
 	if (document.getElementById ("paintinglist").style.overflowY == "scroll" && ! iOS)
 	{
 		var painting = findpaintingatoffset (evt.target.scrollTop);
