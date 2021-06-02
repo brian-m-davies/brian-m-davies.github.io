@@ -17,6 +17,8 @@
 var videostopped = true;
 var mouseoverscroller = false;
 
+var iOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+
 function videoplay ()
 {
 	videostopped = false;
@@ -33,13 +35,13 @@ function videopause ()
 
 function videoseek (evt)
 {
-	if (videostopped && ! mouseoverscroller)
+	if (videostopped && ! mouseoverscroller && ! iOS)
 		document.getElementById ("paintinglist").style.overflowY = "hidden";
 }
 
 function videoseeked (evt)
 {
-	if (videostopped && ! mouseoverscroller)
+	if (videostopped && ! mouseoverscroller && ! iOS)
 		document.getElementById ("paintinglist").style.overflowY = "scroll";
 }
 
@@ -51,16 +53,6 @@ function scrollover (evt)
 function scrollout (evt)
 {
 	mouseoverscroller = false;
-}
-
-function scrolltouchstart (evt)
-{
-	scrollover (evt);
-}
-
-function scrolltouchend (evt)
-{
-	window.setTimeout (scrollout, 2000);
 }
 
 // Set Scroll From Video Time
@@ -213,7 +205,7 @@ div.painting h3 a { text-decoration: none; }
 
 
 
-<div id="paintinglist" class="paintinglist" style="position: relative; overflow-y: scroll;" onmouseover="scrollover (event);" onmouseout="scrollout (event);" ontouchstart="scrolltouchstart (event);" ontouchend="scrolltouchend (event);" onscroll="scrollupdate (event);">
+<div id="paintinglist" class="paintinglist" style="position: relative; overflow-y: scroll;" onmouseover="scrollover (event);" onmouseout="scrollout (event);" onscroll="scrollupdate (event);">
 
 
 <div class="painting" id="t0">
