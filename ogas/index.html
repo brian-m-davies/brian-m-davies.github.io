@@ -5,10 +5,36 @@
 <meta name="description" content="Behind the scenes information about the songs, artists, and lyrics of Oga's Cantina at Disney's Galaxy's Edge">
 <meta name="keywords" content="Disneyland, Walt Disney World, Galaxy's Edge, Batuu, Oga's Cantina, R3X, songs, arists, lyrics">
 <meta name="author" content="Brian Davies">
+
+<base target="_blank">
+
+<script>
+
+function checkhash ()
+{
+	if (document.location.hash)
+		selectsection (document.location.hash.substring (1));
+}
+
+function selectsection (name)
+{
+	document.getElementById ("songs").style.display = "none";
+	document.getElementById ("artists").style.display = "none";
+	document.getElementById ("lyrics").style.display = "none";
+
+	document.getElementById ("songsbutton").classList.remove ('locked');
+	document.getElementById ("artistsbutton").classList.remove ('locked');
+	document.getElementById ("lyricsbutton").classList.remove ('locked');
+
+	document.getElementById (name).style.display = "block";
+	document.getElementById (name + "button").classList.add ('locked');
+}
+
+</script>
+
 <link rel="stylesheet" href="./fontawesome-5.15.3/css/fontawesome.min.css">
 <link rel="stylesheet" href="./fontawesome-5.15.3/css/solid.min.css">
 <link rel="stylesheet" href="./fontawesome-5.15.3/css/brands.min.css">
-
 
 <style>
 
@@ -27,14 +53,14 @@ div.header { position: absolute; bottom: 24px; right: 32px; }
 
 /* content */
 
-div.content { padding: 16px 48px; margin-left: auto; margin-right: auto; max-width: 880px; font-family: Arial; }
+div.content { padding: 0px 48px 48px 48px; margin-left: auto; margin-right: auto; max-width: 880px; font-family: Arial; }
 
 h1, h2, h3, h4 { font-family: "Aurebesh"; }
 
 h1, h2 { text-align: right; }
 
 h1, h2 { margin: 0px; }
-h3 { margin: 16px  0px 16px  0px; }
+h3 { margin: 32px  0px 16px  0px; }
 h4 { margin: 16px  0px  0px  0px; }
 h5 { margin:  0px  0px 12px 24px; }
 
@@ -55,7 +81,7 @@ a:hover { color: #f9d19a; }
 
 b { font-weight: 900; }
 
-hr.wide { color: #897670; height: 6px; width: 40%; margin: 36px auto 0px auto; border-radius: 2px;  }
+hr.wide { color: #897670; height: 6px; width: 40%; margin: 0px auto 0px auto; border-radius: 2px;  }
 hr { background-image: url('metal.jpg'); background-position: center; border: none; height: 6px; width: 6px; border-radius: 2px; margin: 24px auto; }
 
 table { background-color: #614940; min-width: 66%; padding: 6px; margin: 8px auto; border-radius: 2px; }
@@ -78,24 +104,26 @@ f18d02	f2981b	f4a435	f5af4e	f7bb67	f8c681	f9d19a	fbddb3	fce8cc	fef4e6	ffffff
 */
 
 
-/* sidebar */
+/* navigator */
 
-div.sidebar  { position: relative; margin: 24px 0px 48px 60%; background: radial-gradient(#023273 66%, #1367c0); }
+div.navigator  { position: relative; margin: 24px 0px 0px 60%; background: radial-gradient(#023273 66%, #1367c0); }
 
-div.sidebar div, div.sidebar a { position: absolute; }
+div.navigator div, div.navigator a { position: absolute; }
 
-div.sidebar1 { background-color: #81d9eb; }
-div.sidebar2 { background-color: #023273; }
+div.navigator1 { background-color: #81d9eb; }
+div.navigator2 { background-color: #023273; }
 
-div.sidebar { clip-path: polygon(0% 12px, 12px 0%, calc(100% - 12px) 0%, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0% calc(100% - 12px)); }
+div.navigator { clip-path: polygon(0% 12px, 12px 0%, calc(100% - 12px) 0%, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0% calc(100% - 12px)); }
 
-div.sidebar1, div.sidebar2 { clip-path: polygon(0% 8px, 8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px)); }
+div.navigator1, div.navigator2 { clip-path: polygon(0% 8px, 8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px)); }
 
 
-div.sidebar a { display: block; width: 24px; height: 24px; background-color: #7fd5ef; color: #023273; padding: 4px; font-size: 7pt; font-family: monospace; text-decoration: none; text-align: center; }
+div.navigator a { display: block; width: 24px; height: 24px; background-color: #7fd5ef; color: #023273; padding: 4px; font-size: 7pt; font-family: monospace; text-decoration: none; text-align: center; }
 
-div.sidebar a:hover { color: #1367c0; }
-div.sidebar a i { font-size: 12pt; }
+div.navigator a.locked, div.navigator a.locked:hover { color: white; }
+
+div.navigator a:hover { color: #1367c0; }
+div.navigator a i { font-size: 12pt; }
 
 /* fx */
 
@@ -104,7 +132,7 @@ a { transition: color .15s ease-in-out; }
 </style>
 </head>
 
-<body>
+<body onload="checkhash ();">
 
 <!--
 art: https://www.slashfilm.com/ogas-cantina-review/
@@ -126,12 +154,14 @@ texture: https://lostandtaken.com/downloads/scratched-scraped-metal-texture-7/
 
 <h3>Introduction</h3>
 
-<p>This is a compendium of information about the music in Oga&rsquo;s Cantina at Disney&rsquo;s Galaxy Edge.  It includes sections on where to find all the songs that are publicly available, the earthbound artists who created the music, and the alien lyrics of the songs.</p>
+<p>This is a compendium of information about the music in Oga&rsquo;s Cantina at Disney&rsquo;s Galaxy Edge.</p>
+
+<p>You can look up where to find all the <a href="javascript:selectsection ('songs');">songs</a> that are publicly available, background on the earthbound <a href="javascript:selectsection ('artists');">artists</a> who created the music, or translations of the alien <a href="javascript:selectsection ('lyrics');">lyrics</a> of the songs...</p>
 
 
-<div class="sidebar" style="height: 68px; width: 184px;">
-<div class="sidebar1" style="top: 8px; left: 8px; height: 52px; width: 168px;">
-<div class="sidebar2" style="top: 2px; left: 2px; height: 48px; width: 164px;">
+<div class="navigator" style="height: 68px; width: 184px;">
+<div class="navigator1" style="top: 8px; left: 8px; height: 52px; width: 168px;">
+<div class="navigator2" style="top: 2px; left: 2px; height: 48px; width: 164px;">
 
 <!--
 <div style="top: 8px; left: 10px; height: 32px; width: 32px; background-color: #1367c0;"></div>
@@ -147,18 +177,23 @@ texture: https://lostandtaken.com/downloads/scratched-scraped-metal-texture-7/
 <div style="top: 2px; left: 93px; height: 15px; width: 7px; background-color: #81d9eb;"></div>
 <div style="top: 2px; left: 104px; height: 15px; width: 4px; background-color: #81d9eb;"></div>
 
-<a href="#songs"   style="top: 8px; left: 6px;"><i class="fas fa-music"></i><br/>sng</a>
-<a href="#artists" style="top: 0px; left: 55px;"><i class="fas fa-user-friends"></i><br/>ats</a>
-<a href="#lyrics"  style="top: 12px; left: 120px;"><i class="fas fa-paragraph"></i><br/>lyr</a>
+<a id="songsbutton" href="javascript:selectsection ('songs');" style="top: 8px; left: 6px;"><i class="fas fa-music"></i><br/>sng</a>
+<a id="artistsbutton" href="javascript:selectsection ('artists');" style="top: 0px; left: 55px;"><i class="fas fa-user-friends"></i><br/>ats</a>
+<a id="lyricsbutton" href="javascript:selectsection ('lyrics');" style="top: 12px; left: 120px;"><i class="fas fa-paragraph"></i><br/>lyr</a>
 
 </div>
 </div>
 </div>
 
+
+</div>
+
+
+
+
+<div class="content" id="songs" style="display: none;">
 
 <hr class="wide"/>
-
-<a id="songs">&nbsp;</a>
 
 <h3>The Songs</h3>
 
@@ -176,11 +211,19 @@ texture: https://lostandtaken.com/downloads/scratched-scraped-metal-texture-7/
 
 <h4>Extras</h4>
 
-<p>More songs were released in the video game expansion pack "The Sims 4 Star Wars: Journey To Batuu", which includes two new sims radio stations.  <a href="https://sims.fandom.com/wiki/The_Sims_4:_Journey_to_Batuu#DJ_R-3X_Stereo">"DJ R-3X Stereo"</a> includes 4 known Oga&rsquo;s Cantina songs plus "Blue Milk Surprise" and "Til The Spire", so those 2 are almost certainly for Oga&rsquo;s Cantina.  <a href="https://sims.fandom.com/wiki/The_Sims_4:_Journey_to_Batuu#Batuu_Radio">"Batuu Radio"</a> includes 6 rearrangements of John Williams&rsquo; score, 3 ambient tracks (covered later), and 3 songs that may be for Oga&rsquo;s Cantina.</p>
+<p>The video game expansion pack "The Sims 4 Star Wars: Journey To Batuu" includes two radio stations that use music from Galaxy's Edge.</p>
+
+<p>Station <a href="https://sims.fandom.com/wiki/The_Sims_4:_Journey_to_Batuu#DJ_R-3X_Stereo">"DJ R-3X Stereo"</a> includes 4 songs from "R3X&rsquo;s Playlist #1", plus "Blue Milk Surprise" and "Til The Spire", so those 2 are almost certainly used in Oga&rsquo;s Cantina.</p>
 
 <ol type="A">
 <li><a href="https://www.youtube.com/watch?v=En7wVwUsSFU">Blue Milk Surprise</a> by Adam Gubman and Matthew Wood</li>
 <li><a href="https://www.youtube.com/watch?v=i4XckakuxnM">Til The Spire</a> by Tamir Muskat and Ori Kaplan</li>
+</ol>
+
+<p>Station <a href="https://sims.fandom.com/wiki/The_Sims_4:_Journey_to_Batuu#Batuu_Radio">"Batuu Radio"</a> includes 6 rearrangements of John Williams&rsquo; score, 3 ambient tracks (covered later), and 3 songs.  It is not clear if the 3 songs are used in Oga&rsquo;s Cantina, or if they are only played on "BSO 401.72", the radio station that can be heard in various places around Galaxy's Edge.</p>
+
+
+<ol type="A" start="3">
 <li><a href="https://www.youtube.com/watch?v=pcAkbmooteY">Galma</a> by Guy Mayzig</li>
 <li><a href="https://www.youtube.com/watch?v=E2fugqq5cXk">Victory on Ryloth</a> by Kevin Kiner</li>
 <li><a href="https://www.youtube.com/watch?v=zb3Wz6zXrss">Ti Lo Laka</a> by Beckerman Green & Douek</li>
@@ -264,17 +307,28 @@ says “work it out” while Wermo’s guide has it “fancy man"
 
 <p>The Oculus VR game "Star Wars: Tales from the Galaxy's Edge" has music in Seezelslak's Cantina.  One song, <a href="https://www.youtube.com/watch?v=XcV0UUstJyA">Pinteeka Dub</a> by composer Danny Piccione, is available on YouTube.</p>
 
+<!--
+Oh, just checked out the updated Behind The Music post. Nicely done!
+Hers are a few more diagetic tracks to consider for your list. I’m sure you’re aware of these but not sure all would all fit in with the Oga’s vibe. In any case:
+“Stormtrooper JP-054 Karaoke (3M20S)” from Solo Deluxe Soundtrack I’m not sure this was actually heard in the film. https://youtu.be/zP0BeVwP3LE
+“Lando’s Jungle Room also from Solo Deluxe https://youtu.be/nPxOMkTDnBA
+“Cafe Coruscant” from The Clone Wars Season 7 https://youtu.be/sDyF1XrAxAw
+“Zeb Rock” from Rebels https://youtu.be/Jhxo7RaPOas
+Sugaan Essena from Jedi: Fallen Order https://youtu.be/oJZfEh3EciU
+Dex’s Diner (unreleased from Episode 2) https://youtu.be/QE_aMN0aWA4
+-->
 
+
+</div>
 
 
 <!--
 Hailed as “equal parts Philip Glass and Don Draper” by Details Magazine, JOEL BECKERMAN is an award-winning composer and producer for television. He is the founder of Man Made Music, a company specializing in sonic branding. Fast Company named him one of their “Most Creative People in Business” and Man Made Music one of their “Most Innovative Companies” in music. He created original scores for more than 50 television programs, won ASCAP’s “Most Performed” theme award for the past eight years, and has developed signature sonic branding programs for global giants such as Disney, AT&T, and Southwest Airlines. Beckerman has worked with John Legend, will.i.am, Moby, OK Go, Morgan Freeman, and the composer John Williams. He lives in New Providence, New Jersey.
 -->
 
+<div class="content" id="artists" style="display: none;">
 
 <hr class="wide"/>
-
-<a name="artists">&nbsp;</a>
 
 <h3>The Artists</h3>
 
@@ -569,11 +623,15 @@ Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/wat
 
 <p><a href="https://www.youtube.com/watch?v=zb3Wz6zXrss">Ti Lo Laka</a> from "The Sims 4 Star Wars: Journey To Batuu" is by Beckerman Green & Douek.  Beckerman is probably  <a href="https://www.facebook.com/joelbeckerman"><i class="fab fa-facebook-square"></i></a> Joel Beckerman, since his company <a href="https://mademusicstudio.com">Made Music Studio</a> does other branding music for Disney.  Douek is probably <a href="http://joeldouek.com"><i class="fas fa-user"></i></a> Joel Douek.</p>
 
+</div>
 
+
+
+
+
+<div class="content" id="lyrics" style="display: none;">
 
 <hr class="wide"/>
-
-<a name="lyrics">&nbsp</a>
 
 <h3>The Lyrics</h3>
 
@@ -648,8 +706,6 @@ Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/wat
 <tr><td><i>repeat chorus (2:14)</i></td><td></td></tr>
 </table>
 
-<p>(In the third verse, "dobra" sounds more like "lobra", but this is very close, if not perfect.)</p>
-
 <hr/>
 
 <h4>15. Moulee-Rah</h4>
@@ -677,8 +733,6 @@ Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/wat
 <tr><td>&nbsp;</td></tr>
 <tr><td><i>repeat chorus (1:18)</i></td></tr>
 </table>
-
-<p>(Don't hear a "b" in dobra, but nothing else makes sense there.  This is also very close, if not perfect.)</p>
 
 <hr/>
 
@@ -758,11 +812,10 @@ no = no, nobata = no, bata = back, konchee = where]</td></tr>
 <p>The title is Gungan for "One Two Three".  There is not a large enough Gungan vocabulary available to do a translation.</p>
 
 
-
-
-
-
 </div>
+
+
+
 
 </body>
 </html>
