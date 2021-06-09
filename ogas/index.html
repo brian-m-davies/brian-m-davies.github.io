@@ -18,6 +18,7 @@ function checkhash ()
 
 function selectsection (name)
 {
+	document.getElementById ("introduction").style.display = "none";
 	document.getElementById ("songs").style.display = "none";
 	document.getElementById ("artists").style.display = "none";
 	document.getElementById ("lyrics").style.display = "none";
@@ -60,7 +61,7 @@ h1, h2, h3, h4 { font-family: "Aurebesh"; }
 h1, h2 { text-align: right; }
 
 h1, h2 { margin: 0px; }
-h3 { margin: 32px  0px 16px  0px; }
+h3 { margin:  0px  0px 16px  0px; }
 h4 { margin: 16px  0px  0px  0px; }
 h5 { margin:  0px  0px 12px 24px; }
 
@@ -82,14 +83,8 @@ a:hover { color: #f9d19a; }
 b { font-weight: 900; }
 
 hr.wide { color: #897670; height: 6px; width: 40%; margin: 0px auto 0px auto; border-radius: 2px;  }
-hr { background-image: url('metal.jpg'); background-position: center; border: none; height: 6px; width: 6px; border-radius: 2px; margin: 24px auto; }
+hr { background-image: url('metal.jpg'); background-position: right center; border: none; height: 6px; width: 6px; border-radius: 2px; margin: 24px auto; }
 
-table { background-color: #614940; min-width: 66%; padding: 6px; margin: 8px auto; border-radius: 2px; }
-th, td { padding: 3px 6px; font-weight: 900; }
-th { text-align: left; font-size: 12pt; background-color: #4e3228; }
-td { font-size: 9pt; }
-
-td i { opacity: .5; }
 
 /*
 brown
@@ -104,9 +99,10 @@ f18d02	f2981b	f4a435	f5af4e	f7bb67	f8c681	f9d19a	fbddb3	fce8cc	fef4e6	ffffff
 */
 
 
+
 /* navigator */
 
-div.navigator  { position: relative; margin: 24px 0px 0px 60%; background: radial-gradient(#023273 66%, #1367c0); }
+div.navigator  { position: relative; margin: 24px 0px 0px 66%; background: radial-gradient(#023273 66%, #1367c0); }
 
 div.navigator div, div.navigator a { position: absolute; }
 
@@ -125,6 +121,34 @@ div.navigator a.locked, div.navigator a.locked:hover { color: white; }
 div.navigator a:hover { color: #1367c0; }
 div.navigator a i { font-size: 12pt; }
 
+
+
+/* plaster */
+
+table.lyrics { min-width: 66%; background-image: url('plaster.jpg'); padding: 10px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 49px 100%, 47px calc(100% - 1px), 46px calc(100% - 3px), 46px 152px, 0px 98px); border-radius: 5px; margin: 24px auto; }
+
+div.controlpanel { background-image: url('metal.jpg'); background-position: 90% bottom; border: 1px outset gray; padding: 2px; margin-top: 20px; margin-left: 6px; margin-right: 16px; }
+
+div.controlpanel div { height: 10px; width: 10px; margin: 4px; box-shadow: 1px 1px 2px black; }
+
+
+table.lyricstext { padding: 6px; background-color: rgba(20,20,20,.85); width: 100%; }
+
+table.lyricstext th, table.lyricstext td { padding: 3px 6px; font-weight: 900; }
+
+th { text-align: left; font-size: 12pt; }
+td { font-size: 9pt; vertical-align: top; }
+td i { opacity: .5; }
+
+
+table.song { background-image: url('metal.jpg'); background-size: auto; height: 200px; padding: 8px 10px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 69px 100%, 67px calc(100% - 1px), 66px calc(100% - 3px), 66px 162px, 0px 108px); background-position: bottom right; border-radius: 5px; margin: 16px auto; }
+
+div.ventpanel { background-image: url('metal.jpg'); background-position: bottom center; border: 2px inset black; border-radius: 5px; padding: 2px; }
+
+div.ventpanel div { background-color: black; height: 8px; width: 40px; border-radius: 4px; margin: 4px; }
+
+div.songtext { padding: 12px 24px; background-color: rgba(20,20,20,.85); border-radius: 5px;  }
+
 /* fx */
 
 a { transition: color .15s ease-in-out; }
@@ -137,7 +161,8 @@ a { transition: color .15s ease-in-out; }
 <!--
 art: https://www.slashfilm.com/ogas-cantina-review/
 font: https://www.fontspace.com/aurebesh-english-font-f35314
-texture: https://lostandtaken.com/downloads/scratched-scraped-metal-texture-7/
+metal: https://lostandtaken.com/downloads/scratched-scraped-metal-texture-7/
+plaster: https://pixabay.com/photos/stone-wall-plastered-weathered-old-3291485/
 -->
 
 
@@ -151,12 +176,6 @@ texture: https://lostandtaken.com/downloads/scratched-scraped-metal-texture-7/
 
 
 <div class="content">
-
-<h3>Introduction</h3>
-
-<p>This is a compendium of information about the music in Oga&rsquo;s Cantina at Disney&rsquo;s Galaxy Edge.</p>
-
-<p>You can look up where to find all the <a href="javascript:selectsection ('songs');">songs</a> that are publicly available, background on the earthbound <a href="javascript:selectsection ('artists');">artists</a> who created the music, or translations of the alien <a href="javascript:selectsection ('lyrics');">lyrics</a> of the songs...</p>
 
 
 <div class="navigator" style="height: 68px; width: 184px;">
@@ -191,11 +210,32 @@ texture: https://lostandtaken.com/downloads/scratched-scraped-metal-texture-7/
 
 
 
+<div class="content" id="introduction" style="display: block;">
+
+<h3>Introduction</h3>
+
+<p>This is a compendium of information about the music in Oga&rsquo;s Cantina at Disney&rsquo;s Galaxy Edge.</p>
+
+<p>Use the control panel above to look up...</p>
+
+<ul>
+<li>where to find all the <a href="javascript:selectsection ('songs');">songs</a> that are publicly available</li>
+<li>background on the earthbound <a href="javascript:selectsection ('artists');">artists</a> who created the music</li>
+<li>translations of the alien <a href="javascript:selectsection ('lyrics');">lyrics</a> of the songs</li>
+</ul>
+
+
+
+</div>
+
+
+
+
 <div class="content" id="songs" style="display: none;">
 
-<hr class="wide"/>
 
 <h3>The Songs</h3>
+
 
 <p>According to this <a href="https://enewspaper.latimes.com/infinity/article_share.aspx?guid=9bd673e4-fd11-46e4-ae7c-bc9b87200d53">L.A. Times article</a>, the producers at Disney commissioned 29 songs for Oga&rsquo;s Cantina.  26 likely candidates are available online.</p>
 
@@ -205,7 +245,7 @@ texture: https://lostandtaken.com/downloads/scratched-scraped-metal-texture-7/
 
 <p>18 tracks were officially released as "R3X&rsquo;s Playlist #1" as a digital download on September 6, 2019.  (6 of those tracks got their first release as a preview a couple weeks prior, on August 23, 2019, the day before the D23 Expo.)</p>
 
-<p>The playlist is available for purchase from <a href="https://music.apple.com/us/album/star-wars-galaxys-edge-ogas-cantina-r3xs-playlist-1/1478016479">Apple</a>, can be streamed on <a href="https://open.spotify.com/album/2UaqneQVFLgZ65ymj8h3Aj?si=s4sU9sUXT62D9emiPWHUsA">Spotify</a> with an account, and can also be heard on <a href="https://www.youtube.com/watch?v=AydLFrcYNR8&list=PLiNVoBckLqLkZiHccDJk_lYiUrlESFO9z">YouTube</a> for the price of watching a few ads.</p>
+<p>The playlist can be purchased from <a href="https://music.apple.com/us/album/star-wars-galaxys-edge-ogas-cantina-r3xs-playlist-1/1478016479"><i class="fab fa-apple"></i> Apple</a>, streamed on <a href="https://open.spotify.com/album/2UaqneQVFLgZ65ymj8h3Aj?si=s4sU9sUXT62D9emiPWHUsA"><i class="fab fa-spotify"></i> Spotify</a> with an account, and heard on <a href="https://www.youtube.com/watch?v=AydLFrcYNR8&list=PLiNVoBckLqLkZiHccDJk_lYiUrlESFO9z"><i class="fab fa-youtube"></i> YouTube</a> for the price of watching a few ads.</p>
 
 <hr/>
 
@@ -328,7 +368,6 @@ Hailed as “equal parts Philip Glass and Don Draper” by Details Magazine, JOE
 
 <div class="content" id="artists" style="display: none;">
 
-<hr class="wide"/>
 
 <h3>The Artists</h3>
 
@@ -359,12 +398,35 @@ David Collins for writing the lyrics in the alien languages of Star Wars.  Wood 
 
 <hr/>
 
+<table class="song" cellspacing="0">
+<tr>
+
+<td width="1px" style="padding: 0;">
+<div class="ventpanel" style="margin-right: 10px;">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</td>
+
+<td>
+<div class="songtext">
 <h4>1. Mad About Mad About Me</h4>
 <h5>R3X, featuring Figrin D&rsquo;an and the Modal Nodes</h5>
 
 <p>This is a dance remix of the iconic 1977 <a href="https://en.wikipedia.org/wiki/John_Williams">John Williams</a> song, known simply as "Cantina Band" on the original <a href="https://en.wikipedia.org/wiki/Star_Wars_(soundtrack)">Star Wars soundtrack</a>.  It later became known as "Mad About Me" by Figrin D&rsquo;an and the Modal Nodes.</p>
 
 <p>The purported remixer is R3X, the robot DJ (originally RX-24 aka "REX") who formerly piloted the Star Tours ride.  He is <a href="https://peewee.com/2019/04/16/star-wars-fans-paul-reubens-voiced-dj-r3x-in-disneys-galaxys-edge/">voiced</a> by <a href="https://en.wikipedia.org/wiki/Paul_Reubens">Paul Reubens</a>, better known by his stage name <a href="https://en.wikipedia.org/wiki/Pee-wee_Herman">Pee Wee Herman</a>.  The track info does not credit the actual human who did the remix, but <a href="https://www.starwars.com/news/d23-expo-2019-music-and-sounds-of-star-wars-galaxys-edge-panel">this article</a> credits producer Adam Dorn.</p>
+</div>
+</td>
+
+</tr>
+</table>
+
 
 <hr/>
 
@@ -631,11 +693,14 @@ Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/wat
 
 <div class="content" id="lyrics" style="display: none;">
 
-<hr class="wide"/>
 
 <h3>The Lyrics</h3>
 
-<p>Some of the songs are very likely nonsense, but there are a number which were clearly written using the languages created for the films.  Most use Huttese, but Utinni is Jawa and Una Duey Day is Gungan.  Batuu Boogie is possibly Ithorian?</p>
+<p>Some of the songs are very likely nonsense, but there are a number which were clearly written using the languages created for the films.</p>
+
+<p>Yocola Ateema, Huttuk Cheeka, Moulee-Rah, and Goola Bukee are all in Huttese, which is a well-developed language.  The subject matter of the Huttese songs is entertainingly gangsta.</p>
+
+<p>Utinni is Jawa.  Una Duey Day is Gungan for "One Two Three"; there is not a large enough Gungan vocabulary available to do further translation.  Batuu Boogie is possibly Ithorian?</p>
 
 <p>The vocabulary for the translations is from Ben Burtt's Galactic Phrase Book & Travel Guide and <a href="http://www.completewermosguide.com">Complete Wermo&rsquo;s Guide</a>.</p>
 
@@ -643,9 +708,22 @@ Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/wat
 
 <h4>18. Yocola Ateema</h4>
 
-<p>A Huttese drinking song.  Major credit to Anthony for tackling the first one, getting it perfect, and figuring out that translation was even a possibility.  (The rest are mostly collaborations.)</p>
+<p>Major credit to Anthony for tackling the first one, getting it perfect, and figuring out that translation was even a possibility.  (The rest are mostly collaborations.)</p>
 
-<table cellspacing="0">
+
+<table class="lyrics" cellspacing="0" style="background-position: right bottom;">
+<tr>
+
+<td width="1px" style="padding: 0;">
+<div class="controlpanel">
+<div style="background-color: #cccccc;"></div>
+<div style="background-color: #cc0000;"></div>
+<div style="background-color: #cccc00;"></div>
+</div>
+</td>
+
+<td>
+<table class="lyricstext" cellspacing="0">
 <tr><th width="50%">Yocola Ateema</th><th width="50%">Drink Now</th></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td><i>first verse (0:04)</i></td></tr>
@@ -674,14 +752,31 @@ Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/wat
 <tr><td>&nbsp;</td></tr>
 <tr><td>yocola</td><td>drink</td></tr>
 </table>
+</td>
+
+</tr>
+</table>
+
+
+
 
 <hr/>
 
 <h4>17. Huttuk Cheeka</h4>
 
-<p>This song is also Huttese.  This one is about big women.</p>
+<table class="lyrics" cellspacing="0" style="background-position: left bottom;">
+<tr>
 
-<table cellspacing="0">
+<td width="1px" style="padding: 0;">
+<div class="controlpanel">
+<div style="background-color: #cccccc;"></div>
+<div style="background-color: #cc0000;"></div>
+<div style="background-color: #cccc00;"></div>
+</div>
+</td>
+
+<td>
+<table class="lyricstext" cellspacing="0">
 <tr><th width="50%">Huttuk Cheeka</th><th width="50%">Hutt-Sized Woman</th></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td><i>chorus (0:04)</i></td><td></td></tr>
@@ -705,14 +800,30 @@ Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/wat
 <tr><td>&nbsp;</td></tr>
 <tr><td><i>repeat chorus (2:14)</i></td><td></td></tr>
 </table>
+</td>
+
+</tr>
+</table>
+
+
 
 <hr/>
 
 <h4>15. Moulee-Rah</h4>
 
-<p>Another Huttese song about another favorite Huttese subject.</p>
+<table class="lyrics" cellspacing="0" style="background-position: right top;">
+<tr>
 
-<table cellspacing="0">
+<td width="1px" style="padding: 0;">
+<div class="controlpanel">
+<div style="background-color: #cccccc;"></div>
+<div style="background-color: #cc0000;"></div>
+<div style="background-color: #cccc00;"></div>
+</div>
+</td>
+
+<td>
+<table class="lyricstext" cellspacing="0">
 <tr><th width="50%">Moulee-Rah</th><th width="50%">Money</th></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td><i>verse (0:07)</i></td><td></td></tr>
@@ -733,21 +844,41 @@ Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/wat
 <tr><td>&nbsp;</td></tr>
 <tr><td><i>repeat chorus (1:18)</i></td></tr>
 </table>
+</td>
+
+</tr>
+</table>
+
+
+
 
 <hr/>
 
 <h4>11. Goola Bukee</h4>
 
-<p>This seems to be a Huttese gangsta brag song.  Unknown words are in [brackets].  There is a second slightly mocking voice in the song, which is marked with ~ tildes ~.</p>
+<p>The [unknown words] and the slightly mocking ~second voice~ are marked.</p>
 
-<table cellspacing="0">
+
+<table class="lyrics" cellspacing="0" style="background-position: left top;">
+<tr>
+
+<td width="1px" style="padding: 0;">
+<div class="controlpanel">
+<div style="background-color: #cccccc;"></div>
+<div style="background-color: #cc0000;"></div>
+<div style="background-color: #cccc00;"></div>
+</div>
+</td>
+
+<td>
+<table class="lyricstext" cellspacing="0">
 <tr><th width="50%">Goola Bukee</th><th width="50%">Bad Boy</th></tr>
 <tr><td>&nbsp;</td></tr>
-<tr><td><i>verse (0:40)</i></td><td></td></tr>
-<tr><td>jee bolla bu coo jee no [bee] nobata konchee</td><td rowspan="4">[lots of pieces, but they don't add up:<br/>
+<tr><td><i>verse (0:40)</i></td></tr>
+<tr><td>jee bolla bu coo jee no [bee] nobata konchee</td><td rowspan="4"><i>lots of pieces, which don't add up:<br/>
 jee = I, je = me, jee-jee = we,<br/>
 bolla = go, bu = the, coo = who,<br/>
-no = no, nobata = no, bata = back, konchee = where]</td></tr>
+no = no, nobata = no, bata = back, konchee = where</i></td></tr>
 <tr><td>jee [kwanla] bu coo jee no [bee] nobata konchee</td></tr>
 <tr><td>jee-jee no bu coo jee no [bee] nobata konchee</td></tr>
 <tr><td>jee [kwanla] bu coo jee no [bee] nobata konchee</td></tr>
@@ -761,7 +892,7 @@ no = no, nobata = no, bata = back, konchee = where]</td></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td><i>repeat chorus (1:50)</i></td></tr>
 <tr><td>&nbsp;</td></tr>
-<tr><td><i>bridge (2:05)</i></td><td></td></tr>
+<tr><td><i>bridge (2:05)</i></td></tr>
 <tr><td>hotsa yuna, hotsa yuna</td><td>hot body, hot body</td></tr>
 <tr><td>whirlee jee uba</td><td>dance me you</td></tr>
 <tr><td>mee sa gusha, mee sa flootah</td><td>I am lucky, I am fresh</td></tr>
@@ -770,8 +901,17 @@ no = no, nobata = no, bata = back, konchee = where]</td></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td><i>repeat verse (2:25)</i></td></tr>
 </table>
+</td>
+
+</tr>
+</table>
+
+
+
+
 
 <p>(The verse is obviously a mess; it's not even completely clear where the word boundaries are.  "mikiyuna chess ko yuna" doesn't entirely make sense; perhaps "jeeska" (keep) or "cheeska" (cheat) instead of "chess ko"?  "wata" in the bridge is a guess; it could be "waba" (wish) or something else.)</p>
+
 
 <hr/>
 
@@ -779,7 +919,19 @@ no = no, nobata = no, bata = back, konchee = where]</td></tr>
 
 <p>The dictionary of known words in Jawa is small, so this is just a fragment.</p>
 
-<table cellspacing="0">
+<table class="lyrics" cellspacing="0" style="background-position: center center;">
+<tr>
+
+<td width="1px" style="padding: 0;">
+<div class="controlpanel">
+<div style="background-color: #cccccc;"></div>
+<div style="background-color: #cc0000;"></div>
+<div style="background-color: #cccc00;"></div>
+</div>
+</td>
+
+<td>
+<table class="lyricstext" cellspacing="0">
 <tr><th width="50%">Utinni</th><th width="50%">Wow</th></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td><i>first verse (0:50)</i></td><td>&nbsp;</td></tr>
@@ -802,15 +954,13 @@ no = no, nobata = no, bata = back, konchee = where]</td></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td><i>repeat second verse (2:12)</i></td></tr>
 </table>
+</td>
+
+</tr>
+</table>
+
 
 <!-- 1:29 tango weesa gada lasku  could be tando = fix? -->
-
-<hr/>
-
-<h4>10. Una Duey Dee</h4>
-
-<p>The title is Gungan for "One Two Three".  There is not a large enough Gungan vocabulary available to do a translation.</p>
-
 
 </div>
 
