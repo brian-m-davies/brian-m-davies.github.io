@@ -19,15 +19,15 @@ function checkhash ()
 function selectsection (name)
 {
 	document.getElementById ("introduction").style.display = "none";
-	document.getElementById ("songs").style.display = "none";
-	document.getElementById ("artists").style.display = "none";
-	document.getElementById ("lyrics").style.display = "none";
+	document.getElementById ("songscontent").style.display = "none";
+	document.getElementById ("artistscontent").style.display = "none";
+	document.getElementById ("lyricscontent").style.display = "none";
 
 	document.getElementById ("songsbutton").classList.remove ('locked');
 	document.getElementById ("artistsbutton").classList.remove ('locked');
 	document.getElementById ("lyricsbutton").classList.remove ('locked');
 
-	document.getElementById (name).style.display = "block";
+	document.getElementById (name + "content").style.display = "block";
 	document.getElementById (name + "button").classList.add ('locked');
 }
 
@@ -114,7 +114,7 @@ div.navigator { clip-path: polygon(0% 12px, 12px 0%, calc(100% - 12px) 0%, 100% 
 div.navigator1, div.navigator2 { clip-path: polygon(0% 8px, 8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px)); }
 
 
-div.navigator a { display: block; width: 24px; height: 24px; background-color: #7fd5ef; color: #023273; padding: 4px; font-size: 7pt; font-family: monospace; text-decoration: none; text-align: center; }
+div.navigator a { display: block; width: 24px; height: 24px; background-color: #81d9eb; color: #023273; padding: 4px; font-size: 7pt; font-family: monospace; text-decoration: none; text-align: center; }
 
 div.navigator a.locked, div.navigator a.locked:hover { color: white; }
 
@@ -196,8 +196,8 @@ plaster: https://pixabay.com/photos/stone-wall-plastered-weathered-old-3291485/
 <div style="top: 2px; left: 93px; height: 15px; width: 7px; background-color: #81d9eb;"></div>
 <div style="top: 2px; left: 104px; height: 15px; width: 4px; background-color: #81d9eb;"></div>
 
-<a id="songsbutton" href="javascript:selectsection ('songs');" style="top: 8px; left: 6px;"><i class="fas fa-music"></i><br/>sng</a>
-<a id="artistsbutton" href="javascript:selectsection ('artists');" style="top: 0px; left: 55px;"><i class="fas fa-user-friends"></i><br/>ats</a>
+<a id="songsbutton" href="javascript:selectsection ('songs');" style="top: 6px; left: 6px;"><i class="fas fa-microphone-alt"></i><br/>sng</a>
+<a id="artistsbutton" href="javascript:selectsection ('artists');" style="top: 2px; left: 56px;"><i class="fas fa-id-card"></i><br/>ats</a>
 <a id="lyricsbutton" href="javascript:selectsection ('lyrics');" style="top: 12px; left: 120px;"><i class="fas fa-paragraph"></i><br/>lyr</a>
 
 </div>
@@ -231,7 +231,7 @@ plaster: https://pixabay.com/photos/stone-wall-plastered-weathered-old-3291485/
 
 
 
-<div class="content" id="songs" style="display: none;">
+<div class="content" id="songscontent" style="display: none;">
 
 
 <h3>The Songs</h3>
@@ -366,7 +366,7 @@ Dex’s Diner (unreleased from Episode 2) https://youtu.be/QE_aMN0aWA4
 Hailed as “equal parts Philip Glass and Don Draper” by Details Magazine, JOEL BECKERMAN is an award-winning composer and producer for television. He is the founder of Man Made Music, a company specializing in sonic branding. Fast Company named him one of their “Most Creative People in Business” and Man Made Music one of their “Most Innovative Companies” in music. He created original scores for more than 50 television programs, won ASCAP’s “Most Performed” theme award for the past eight years, and has developed signature sonic branding programs for global giants such as Disney, AT&T, and Southwest Airlines. Beckerman has worked with John Legend, will.i.am, Moby, OK Go, Morgan Freeman, and the composer John Williams. He lives in New Providence, New Jersey.
 -->
 
-<div class="content" id="artists" style="display: none;">
+<div class="content" id="artistscontent" style="display: none;">
 
 
 <h3>The Artists</h3>
@@ -691,7 +691,7 @@ Ryloth remixes Ladies & Gentleman by Jaques Le Noir: https://www.youtube.com/wat
 
 
 
-<div class="content" id="lyrics" style="display: none;">
+<div class="content" id="lyricscontent" style="display: none;">
 
 
 <h3>The Lyrics</h3>
