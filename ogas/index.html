@@ -77,8 +77,8 @@ h3 { background-position: center; }
 
 p, li { font-size: 11pt; }
 
-a { color: #f18d02; }
-a:hover { color: #f9d19a; }
+a, span.link { color: #f18d02; text-decoration: underline; cursor: hand; }
+a:hover, span.link:hover { color: #f9d19a; }
 
 b { font-weight: 900; }
 
@@ -114,7 +114,7 @@ div.navigator { clip-path: polygon(0% 12px, 12px 0%, calc(100% - 12px) 0%, 100% 
 div.navigator1, div.navigator2 { clip-path: polygon(0% 8px, 8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px)); }
 
 
-div.navigator a { display: block; width: 24px; height: 24px; background-color: #81d9eb; color: #023273; padding: 4px; font-size: 7pt; font-family: monospace; text-decoration: none; text-align: center; }
+div.navigator a { display: block; width: 24px; height: 24px; background-color: #81d9eb; color: #023273; padding: 4px; font-size: 7pt; font-family: monospace; text-decoration: none; text-align: center; cursor: hand; }
 
 div.navigator a.locked, div.navigator a.locked:hover { color: white; }
 
@@ -151,7 +151,7 @@ div.songtext { padding: 12px 24px; background-color: rgba(20,20,20,.85); border-
 
 /* fx */
 
-a { transition: color .15s ease-in-out; }
+a, span.link { transition: color .15s ease-in-out; }
 
 </style>
 </head>
@@ -196,9 +196,9 @@ plaster: https://pixabay.com/photos/stone-wall-plastered-weathered-old-3291485/
 <div style="top: 2px; left: 93px; height: 15px; width: 7px; background-color: #81d9eb;"></div>
 <div style="top: 2px; left: 104px; height: 15px; width: 4px; background-color: #81d9eb;"></div>
 
-<a id="songsbutton" href="javascript:selectsection ('songs');" style="top: 6px; left: 6px;"><i class="fas fa-microphone-alt"></i><br/>sng</a>
-<a id="artistsbutton" href="javascript:selectsection ('artists');" style="top: 2px; left: 56px;"><i class="fas fa-id-card"></i><br/>ats</a>
-<a id="lyricsbutton" href="javascript:selectsection ('lyrics');" style="top: 12px; left: 120px;"><i class="fas fa-paragraph"></i><br/>lyr</a>
+<a id="songsbutton" onclick="selectsection ('songs');" style="top: 6px; left: 6px;"><i class="fas fa-microphone-alt"></i><br/>sng</a>
+<a id="artistsbutton" onclick="selectsection ('artists');" style="top: 2px; left: 56px;"><i class="fas fa-id-card"></i><br/>ats</a>
+<a id="lyricsbutton" onclick="selectsection ('lyrics');" style="top: 12px; left: 120px;"><i class="fas fa-paragraph"></i><br/>lyr</a>
 
 </div>
 </div>
@@ -219,9 +219,9 @@ plaster: https://pixabay.com/photos/stone-wall-plastered-weathered-old-3291485/
 <p>Use the control panel above to look up...</p>
 
 <ul>
-<li>where to find all the <a href="javascript:selectsection ('songs');">songs</a> that are publicly available</li>
-<li>background on the earthbound <a href="javascript:selectsection ('artists');">artists</a> who created the music</li>
-<li>translations of the alien <a href="javascript:selectsection ('lyrics');">lyrics</a> of the songs</li>
+<li>where to find all the <span class="link" onclick="selectsection ('songs');">songs</span> that are publicly available</li>
+<li>background on the earthbound <span class="link" onclick="selectsection ('artists');">artists</span> who created the music</li>
+<li>translations of the alien <span class="link" onclick="selectsection ('lyrics');">lyrics</span> of the songs</li>
 </ul>
 
 
@@ -305,6 +305,8 @@ Harlan Hodges are 2 of the 3 people who comprise <a href="https://aporiaentertai
 
 <p>Short excerpts of Marketplace and 6 other ambient pieces are available on <a href="https://www.harlanhodges.com/news/the-music-of-star-wars-galaxys-edge-harlan-hodges-and-randy-kerber">Harlan Hodges&rsquo; site</a>.</p>
 
+<p>An hour of the <a href="https://www.youtube.com/watch?v=tJ62OOBVbAY">Resistance Forest</a> sounds is up on YouTube.</p>
+
 <hr/>
 
 
@@ -356,6 +358,11 @@ Hers are a few more diagetic tracks to consider for your list. I’m sure you’
 “Zeb Rock” from Rebels https://youtu.be/Jhxo7RaPOas
 Sugaan Essena from Jedi: Fallen Order https://youtu.be/oJZfEh3EciU
 Dex’s Diner (unreleased from Episode 2) https://youtu.be/QE_aMN0aWA4
+-->
+
+<!--
+	Galaxy's Edge Symphonic Suite
+	https://www.youtube.com/watch?v=3U5rC7AbZ2Y
 -->
 
 
